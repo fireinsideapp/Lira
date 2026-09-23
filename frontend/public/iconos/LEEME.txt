@@ -1,0 +1,1 @@
+Iconos de la PWA: icono-192.png e icono-512.png (y una version 'maskable'). Los pide el manifest en vite.config.ts.

@@ -1,0 +1,1 @@
+Componentes visuales reutilizables pensados para adultos mayores: BotonGrande.tsx, Tarjeta.tsx, Texto.tsx (tipografia grande, alto contraste, areas de toque amplias).

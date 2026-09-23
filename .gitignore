@@ -1,0 +1,10 @@
+# Archivos que git debe ignorar.
+
+.env
+node_modules/
+dist/
+__pycache__/
+.venv/
+*.pyc
+backend/cache_audio/*
+!backend/cache_audio/LEEME.txt

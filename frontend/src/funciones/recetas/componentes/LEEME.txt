@@ -1,0 +1,1 @@
+Componentes de esta funcion: TarjetaReceta.tsx, ListaIngredientes.tsx, etc.

@@ -1,0 +1,26 @@
+{
+  "_comentario": "Ejemplo de receta. Un JSON por receta (5-8 en el MVP). Los tiempos y notas de seguridad deben ir explicitos: el LLM nunca debe inventarlos. Las claves deben coincidir con la BD y los tipos de TypeScript.",
+  "slug": "frijoles-de-la-olla",
+  "titulo": "Frijoles de la olla",
+  "descripcion": "Frijoles caseros, suaves y con caldito.",
+  "porciones": 6,
+  "ingredientes": [
+    { "nombre": "Frijol", "cantidad": "500 g" },
+    { "nombre": "Cebolla", "cantidad": "1/4 pieza" },
+    { "nombre": "Sal", "cantidad": "al gusto" }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "texto": "Lava los frijoles y ponlos en la olla con agua.",
+      "temporizador_segundos": null,
+      "nota_seguridad": null
+    },
+    {
+      "orden": 2,
+      "texto": "Dejalos cocer a fuego bajo, con la olla tapada.",
+      "temporizador_segundos": 5400,
+      "nota_seguridad": "Revisa que haya agua suficiente."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Modelo de la palabra clave 'Lyra' (.ppn descargado de la consola de Picovoice) y los archivos de parametros en espanol (.pv). Aqui tambien van los WASM de Porcupine si se sirven localmente.

@@ -1,0 +1,1 @@
+Componentes de cocina: IndicadorEscucha.tsx (te escucho / pensando / hablando), BotonHablar.tsx (respaldo), BarraProgreso.tsx.

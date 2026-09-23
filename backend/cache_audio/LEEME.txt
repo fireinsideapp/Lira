@@ -1,0 +1,1 @@
+Aqui se guardan los audios generados por el TTS. Se llena solo con el uso. Nombre del archivo = hash(texto + voz + velocidad). Ignorado por git.

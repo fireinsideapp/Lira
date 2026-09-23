@@ -1,0 +1,7 @@
+/*
+  Tokens de diseno: tamanos de letra grandes, colores de alto contraste, espaciados y radios. Importa las capas de Tailwind.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

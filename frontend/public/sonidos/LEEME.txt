@@ -1,0 +1,1 @@
+Sonidos cortos: tono de 'te escucho' (cuando se detecta Lyra) y alarma del temporizador (con la app abierta).

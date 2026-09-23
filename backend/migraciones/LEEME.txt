@@ -1,0 +1,1 @@
+Migraciones de Alembic (se crean con: uv run alembic revision --autogenerate -m 'mensaje').

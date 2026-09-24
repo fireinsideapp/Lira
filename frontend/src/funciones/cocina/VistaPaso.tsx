@@ -4,8 +4,8 @@ import type { Paso } from "../recetas/tipos";
 
 export function VistaPaso({ paso, total }: { paso: Paso; total: number }) {
   return (
-    <div className="rounded-3xl border-4 border-blue-100 bg-white p-6 shadow-md">
-      <span className="mb-4 inline-block rounded-full bg-blue-600 px-4 py-1 text-xl font-bold text-white">
+    <div className="rounded-3xl border-4 border-[#8FB9A1]/30 bg-white p-6 shadow-md">
+      <span className="mb-4 inline-block rounded-full bg-[#8FB9A1] px-4 py-1 text-xl font-bold text-slate-900">
         Paso {paso.orden} de {total}
       </span>
       <p className="text-3xl font-bold leading-snug text-slate-900" aria-live="polite">

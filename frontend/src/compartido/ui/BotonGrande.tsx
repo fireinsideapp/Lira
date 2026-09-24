@@ -2,7 +2,7 @@
 import type { ButtonHTMLAttributes } from "react";
 
 const estilos = {
-  primario: "bg-blue-600 text-white active:bg-blue-800",
+  primario: "bg-[#8FB9A1] text-slate-900 active:bg-[#7da790]",
   secundario: "bg-slate-200 text-slate-900 active:bg-slate-300",
   peligro: "bg-red-600 text-white active:bg-red-800",
 };

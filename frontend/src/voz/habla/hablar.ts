@@ -1,14 +1,22 @@
-// Lyra habla: divide el texto en frases, pide el audio de cada una al backend (TTS con cache)
-// y las reproduce en orden, pidiendo la siguiente mientras suena la actual.
-// Si el backend no tiene TTS configurado (501) o falla, usa la voz del navegador.
+// Lyra habla: entonación optimizada para máxima expresividad local.
 import { useVoz } from "../useVoz";
 import { detenerReproduccion, reproducirUrl } from "./reproductor";
 
-let turno = 0;          // cada llamada nueva invalida a la anterior (para poder cortar)
-let sinTTS = false;     // el backend respondio 501: no volver a intentar
+let turno = 0;          
+let sinTTS = false;     
 
 export function dividirFrases(texto: string): string[] {
-  return texto.split(/(?<=[.!?])\s+/).map((f) => f.trim()).filter(Boolean);
+  // Optimizamos el texto agregando pausas naturales con puntos suspensivos
+  // y suavizando la lectura para que el navegador module mejor la voz.
+  const textoOptimizado = texto
+    .replace(/[#*_`]/g, "") 
+    .replace(/,\s+/g, "... ") // Las comas se convierten en pausas de aire
+    .replace(/\.\s+/g, ". ... "); // Los puntos añaden un respiro más profundo
+
+  return textoOptimizado
+    .split(/(?<=[.!?])\s+/)
+    .map((f) => f.trim())
+    .filter(Boolean);
 }
 
 async function pedirAudio(texto: string): Promise<string | null> {
@@ -26,15 +34,46 @@ async function pedirAudio(texto: string): Promise<string | null> {
   }
 }
 
+function obtenerVozFemenina(): SpeechSynthesisVoice | null {
+  if (!("speechSynthesis" in window)) return null;
+  const voces = speechSynthesis.getVoices();
+  
+  // Priorizamos las mejores voces en español disponibles en el equipo
+  const mejorVoz = voces.find(
+    (v) => v.lang.startsWith("es") && (
+      v.name.toLowerCase().includes("helena") ||
+      v.name.toLowerCase().includes("sabina") ||
+      v.name.toLowerCase().includes("paula") ||
+      v.name.toLowerCase().includes("lucia") ||
+      v.name.toLowerCase().includes("zira") ||
+      v.name.toLowerCase().includes("dalia") ||
+      v.name.toLowerCase().includes("mia") ||
+      v.name.toLowerCase().includes("female") ||
+      v.name.toLowerCase().includes("natural")
+    )
+  ) || voces.find((v) => v.lang.startsWith("es-MX")) || voces.find((v) => v.lang.startsWith("es"));
+
+  return mejorVoz || null;
+}
+
 function hablarConNavegador(texto: string): Promise<void> {
   return new Promise((resolve) => {
     if (!("speechSynthesis" in window)) return resolve();
     speechSynthesis.cancel();
+    
     const u = new SpeechSynthesisUtterance(texto);
     u.lang = "es-MX";
-    u.rate = 0.9;
+    u.rate = 0.82;  // Ritmo súper pausado, ideal para que no atropelle las palabras
+    u.pitch = 1.12; // Tono ligeramente más alto para darle personalidad juvenil y cálida
+
+    const voz = obtenerVozFemenina();
+    if (voz) {
+      u.voice = voz;
+    }
+
     u.onend = () => resolve();
     u.onerror = () => resolve();
+    
     speechSynthesis.speak(u);
   });
 }
@@ -42,7 +81,16 @@ function hablarConNavegador(texto: string): Promise<void> {
 export async function hablar(texto: string): Promise<void> {
   const mio = ++turno;
   detenerReproduccion();
-  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  if ("speechSynthesis" in window) {
+    speechSynthesis.cancel();
+    if (speechSynthesis.getVoices().length === 0) {
+      await new Promise<void>((resolve) => {
+        speechSynthesis.onvoiceschanged = () => resolve();
+        setTimeout(resolve, 100);
+      });
+    }
+  }
+
   useVoz.getState().setEstado("hablando");
 
   try {

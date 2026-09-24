@@ -16,20 +16,20 @@ export function ControlesPaso({ esUltimo, alAnterior, alSiguiente, alRepetir }: 
       <p className="mb-3 flex items-center justify-center gap-2 text-center text-xl font-bold text-slate-700">
         {hablando ? (
           <>
-            <Volume2 className="h-6 w-6 text-blue-600" aria-hidden /> Lyra está hablando…
+            <Volume2 className="h-6 w-6 text-[#8FB9A1]" aria-hidden /> Lyra está hablando…
           </>
         ) : (
           "Toca «Siguiente» cuando termines"
         )}
       </p>
       <div className="flex items-stretch gap-3">
-        <button onClick={alAnterior} aria-label="Paso anterior" className="flex w-20 items-center justify-center rounded-2xl bg-slate-200 text-slate-900 active:bg-slate-300">
+        <button onClick={alAnterior} aria-label="Paso anterior" className="flex w-20 items-center justify-center rounded-2xl bg-slate-200 text-slate-900 active:bg-slate-300 transition-colors">
           <ArrowLeft className="h-9 w-9" />
         </button>
-        <button onClick={alSiguiente} className="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-blue-600 py-6 text-3xl font-extrabold text-white shadow-lg active:bg-blue-800">
+        <button onClick={alSiguiente} className="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-[#8FB9A1] py-6 text-3xl font-extrabold text-slate-900 shadow-lg active:bg-[#7da790] transition-colors">
           {esUltimo ? <>Terminar <Check className="h-9 w-9" /></> : <>Siguiente <ArrowRight className="h-9 w-9" /></>}
         </button>
-        <button onClick={alRepetir} aria-label="Repetir el paso" className="flex w-20 items-center justify-center rounded-2xl bg-slate-200 text-slate-900 active:bg-slate-300">
+        <button onClick={alRepetir} aria-label="Repetir el paso" className="flex w-20 items-center justify-center rounded-2xl bg-slate-200 text-slate-900 active:bg-slate-300 transition-colors">
           <RotateCcw className="h-9 w-9" />
         </button>
       </div>

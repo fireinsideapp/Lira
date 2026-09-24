@@ -1,0 +1,148 @@
+{
+  "_comentario": "Tiempos y advertencias tomados de la receta original; Lyra no debe inventar otros. Edita el JSON y reinicia el backend para actualizar.",
+  "slug": "chilaquiles-rojos",
+  "titulo": "Chilaquiles rojos",
+  "descripcion": "Desayuno tradicional mexicano: totopos de maíz bañados en salsa roja, con queso, crema, cebolla y cilantro.",
+  "porciones": null,
+  "ingredientes": [
+    {
+      "nombre": "Tortillas de maíz cortadas en triángulos",
+      "cantidad": "8 a 12 aproximadamente",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Aceite para freír",
+      "cantidad": "",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Tomates rojos",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Chile guajillo",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Chile de árbol",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Sal",
+      "cantidad": "",
+      "grupo": "Salsa roja"
+    },
+    {
+      "nombre": "Queso fresco desmenuzado (o cotija)",
+      "cantidad": "",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Crema",
+      "cantidad": "",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Cebolla picada",
+      "cantidad": "",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Cilantro",
+      "cantidad": "",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Huevo frito o pollo deshebrado (opcional)",
+      "cantidad": "",
+      "grupo": "Para servir"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Antes de empezar, reúne todos los ingredientes sobre la mesa. Corta las tortillas en triángulos.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null
+    },
+    {
+      "texto": "Pon en una olla con agua los tomates rojos y los chiles guajillo y de árbol. Hiérvelos hasta que estén suaves.",
+      "estufa": "encendida",
+      "nota_seguridad": "Cuida la olla mientras hierve.",
+      "orden": 2,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null
+    },
+    {
+      "texto": "Apaga la estufa. Escurre los tomates y los chiles.",
+      "estufa": "apagar",
+      "orden": 3,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null
+    },
+    {
+      "texto": "Pon en la licuadora lo que escurriste, con la cebolla, el ajo y sal. Licúa hasta que quede una salsa.",
+      "estufa": null,
+      "nota_seguridad": "Ten cuidado: los ingredientes calientes pueden salpicar al licuar.",
+      "orden": 4,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null
+    },
+    {
+      "texto": "Calienta un poco de aceite en una sartén y fríe la salsa de 5 a 10 minutos. Te aviso a los 5 minutos para que la revises.",
+      "estufa": "encendida",
+      "temporizador_segundos": 300,
+      "temporizador_nombre": "Salsa en la sartén",
+      "nota_seguridad": "Ten cuidado con las salpicaduras de aceite caliente.",
+      "orden": 5
+    },
+    {
+      "texto": "Fríe las tortillas en triángulos en aceite caliente hasta que estén doradas y crujientes. Si prefieres, también puedes hornearlas a 200 grados de 15 a 20 minutos.",
+      "estufa": "encendida",
+      "nota_seguridad": "Ten mucho cuidado con el aceite caliente.",
+      "orden": 6,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null
+    },
+    {
+      "texto": "Agrega los totopos a la salsa caliente en la sartén. Mezcla con movimientos envolventes para cubrirlos sin romperlos. Cocina de 2 a 3 minutos, hasta que la salsa espese ligeramente. Te aviso a los 2 minutos para que los revises.",
+      "estufa": "encendida",
+      "temporizador_segundos": 120,
+      "temporizador_nombre": "Chilaquiles en la sartén",
+      "orden": 7,
+      "nota_seguridad": null
+    },
+    {
+      "texto": "Apaga la estufa.",
+      "estufa": "apagar",
+      "orden": 8,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null
+    },
+    {
+      "texto": "Sirve los chilaquiles inmediatamente. Decóralos con queso, crema, cebolla picada y cilantro. Si quieres, agrega huevo frito o pollo deshebrado. ¡Buen provecho!",
+      "estufa": null,
+      "orden": 9,
+      "temporizador_segundos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null
+    }
+  ]
+}

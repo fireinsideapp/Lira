@@ -1,3 +1,4 @@
+# Dependencias de la fase 1. En las semanas 2-3 se agregan: redis, arq, pywebpush, openai/anthropic, alembic.
 [project]
 name = "lyra-backend"
 version = "0.1.0"
@@ -7,16 +8,7 @@ dependencies = [
   "uvicorn[standard]",
   "sqlalchemy[asyncio]",
   "asyncpg",
-  "alembic",
+  "aiosqlite",
   "pydantic-settings",
-  "redis",
-  "arq",
-  "pywebpush",
   "httpx",
-  "openai",
-  "anthropic",
-  "python-multipart",
 ]
-
-[dependency-groups]
-dev = ["pytest", "pytest-asyncio", "ruff"]

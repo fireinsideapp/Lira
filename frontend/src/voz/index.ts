@@ -1,4 +1,4 @@
-/**
- * Unica API publica del modulo de voz. El resto de la app SOLO importa desde aqui.
- * Asi, si cambia la tecnologia de voz, solo se reemplaza esta carpeta.
- */
+// Unica API publica del modulo de voz. El resto de la app solo importa desde aqui.
+export { hablar, detener } from "./habla/hablar";
+export { useVoz } from "./useVoz";
+export type { EstadoVoz } from "./useVoz";

@@ -8,3 +8,4 @@ __pycache__/
 *.pyc
 backend/cache_audio/*
 !backend/cache_audio/LEEME.txt
+package-lock.json

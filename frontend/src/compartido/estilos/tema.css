@@ -1,7 +1,16 @@
-/*
-  Tokens de diseno: tamanos de letra grandes, colores de alto contraste, espaciados y radios. Importa las capas de Tailwind.
-*/
+/* Tema: Tailwind v4, tipografia base grande (18px) y colores de alto contraste. */
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+}

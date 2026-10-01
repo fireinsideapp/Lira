@@ -1,5 +1,3 @@
-"""POST /api/voz/hablar: texto -> audio MP3 (con cache). 501 si no hay TTS configurado."""
-import httpx
 from fastapi import APIRouter, HTTPException, Response
 from pydantic import BaseModel, Field
 
@@ -18,6 +16,8 @@ async def hablar(peticion: PeticionHablar):
         audio = await servicio_voz.hablar_con_cache(peticion.texto)
     except servicio_voz.TTSNoConfigurado:
         raise HTTPException(501, "TTS no configurado")
-    except httpx.HTTPError:
-        raise HTTPException(502, "El proveedor de voz fallo")
+    except Exception as e:
+        print(f"Error en endpoint /voz/hablar: {e}")
+        raise HTTPException(502, f"El proveedor de voz falló: {str(e)}")
+        
     return Response(content=audio, media_type="audio/mpeg")

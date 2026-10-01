@@ -9,10 +9,11 @@ import { useRecetas } from "./api";
 export default function ListaRecetasPagina() {
   const { datos: recetas, error, reintentar } = useRecetas();
 
-  // Guía de voz automática al entrar a la lista de recetas
+  // Guía de voz automática: lee los nombres de las recetas disponibles
   useEffect(() => {
-    if (recetas) {
-      hablar("¿Qué vamos a cocinar hoy? Elige una receta para comenzar.");
+    if (recetas && recetas.length > 0) {
+      const nombres = recetas.map((r) => r.titulo).join(", ");
+      hablar(`¿Qué vamos a cocinar hoy? Tenemos disponibles: ${nombres}. Elige una receta para comenzar.`);
     }
     return () => {
       detener();
@@ -34,7 +35,7 @@ export default function ListaRecetasPagina() {
             to={`/recetas/${r.slug}`}
             onClick={() => detener()} // Detiene la lectura al hacer clic en una receta
             className="flex items-center justify-between gap-4 rounded-2xl bg-[#8FB9A1] p-5 shadow-sm transition-transform active:scale-95 text-slate-900"
-            style={{ backgroundColor: "#8FB9A1" }}
+            style={{ borderColor: "#8FB9A1" }}
           >
             <div className="flex-1">
               <h2 className="text-2xl font-extrabold text-slate-900 tracking-wide">

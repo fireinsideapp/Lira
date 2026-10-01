@@ -1,72 +1,64 @@
-"""Cliente TTS (OpenAI o ElevenLabs) con cache. Devuelve MP3."""
-import httpx
+import os
+import hashlib
+import requests
+from dotenv import load_dotenv
 
-from app.configuracion import config
-from app.servicios import cache_audio
+load_dotenv()
 
-INSTRUCCIONES = (
-    "Habla en español de México con voz cálida, pausada y clara, "
-    "como una compañía amable para una persona mayor."
-)
+API_KEY = os.getenv("ELEVENLABS_API_KEY")
+VOICE_ID = os.getenv("ID_VOZ")
+MODELO = os.getenv("MODELO_TTS", "eleven_multilingual_v2")
 
+CARPETA_CACHE = "cache_audio"
 
 class TTSNoConfigurado(Exception):
-    """No hay proveedor de TTS listo; el frontend usa la voz del navegador."""
-
-
-def _proveedor() -> str:
-    if config.proveedor_tts == "openai" and config.openai_api_key:
-        return "openai"
-    if config.proveedor_tts == "elevenlabs" and config.elevenlabs_api_key and config.id_voz:
-        return "elevenlabs"
-    raise TTSNoConfigurado()
-
-
-async def _openai(texto: str) -> bytes:
-    modelo = config.modelo_tts or "gpt-4o-mini-tts"
-    cuerpo = {
-        "model": modelo,
-        "voice": config.id_voz or "coral",
-        "input": texto,
-        "response_format": "mp3",
-    }
-    if modelo.startswith("gpt-4o"):
-        cuerpo["instructions"] = INSTRUCCIONES  # solo los modelos gpt-4o lo aceptan
-    async with httpx.AsyncClient(timeout=30) as cliente:
-        r = await cliente.post(
-            "https://api.openai.com/v1/audio/speech",
-            headers={"Authorization": f"Bearer {config.openai_api_key}"},
-            json=cuerpo,
-        )
-        r.raise_for_status()
-        return r.content
-
-
-async def _elevenlabs(texto: str) -> bytes:
-    cuerpo = {
-        "text": texto,
-        "model_id": config.modelo_tts or "eleven_flash_v2_5",
-        "language_code": "es",
-        "voice_settings": {"speed": config.velocidad_voz},
-    }
-    async with httpx.AsyncClient(timeout=30) as cliente:
-        r = await cliente.post(
-            f"https://api.elevenlabs.io/v1/text-to-speech/{config.id_voz}",
-            headers={"xi-api-key": config.elevenlabs_api_key},
-            json=cuerpo,
-        )
-        r.raise_for_status()
-        return r.content
-
+    """Excepción lanzada cuando faltan credenciales de ElevenLabs."""
+    pass
 
 async def hablar_con_cache(texto: str) -> bytes:
-    proveedor = _proveedor()
-    k = cache_audio.clave(
-        proveedor, config.id_voz, config.modelo_tts, str(config.velocidad_voz), texto
-    )
-    audio = cache_audio.leer(k)
-    if audio:
-        return audio
-    audio = await (_openai(texto) if proveedor == "openai" else _elevenlabs(texto))
-    cache_audio.guardar(k, audio)
-    return audio
+    """
+    Verifica si el audio ya está en caché. Si no, lo solicita a ElevenLabs,
+    lo guarda y retorna los bytes del archivo MP3.
+    """
+    if not API_KEY or not VOICE_ID:
+        raise TTSNoConfigurado("Faltan las credenciales de ElevenLabs en el archivo .env")
+
+    # Crear hash del texto para usarlo como nombre de archivo único en caché
+    hash_texto = hashlib.md5(texto.encode("utf-8")).hexdigest()
+    os.makedirs(CARPETA_CACHE, exist_ok=True)
+    ruta_archivo = os.path.join(CARPETA_CACHE, f"{hash_texto}.mp3")
+
+    # Si ya existe en caché, lo leemos directamente
+    if os.path.exists(ruta_archivo):
+        with open(ruta_archivo, "rb") as f:
+            return f.read()
+
+    # Si no está en caché, hacemos la petición a ElevenLabs
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}?output_format=mp3_44100_128"
+
+    headers = {
+        "Accept": "audio/mpeg",
+        "Content-Type": "application/json",
+        "xi-api-key": API_KEY
+    }
+
+    data = {
+        "text": texto,
+        "model_id": MODELO,
+        "voice_settings": {
+            "stability": 0.5,
+            "similarity_boost": 0.75
+        }
+    }
+
+    response = requests.post(url, json=data, headers=headers)
+
+    if response.status_code == 200:
+        audio_bytes = response.content
+        # Guardar en caché
+        with open(ruta_archivo, "wb") as f:
+            f.write(audio_bytes)
+        return audio_bytes
+    else:
+        print(f"--- ERROR ELEVENLABS --- Status: {response.status_code} | Respuesta: {response.text}")
+        raise Exception(f"Error en ElevenLabs ({response.status_code}): {response.text}")

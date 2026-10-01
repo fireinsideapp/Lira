@@ -1,9 +1,9 @@
 """POST /api/voz/hablar: texto -> audio MP3 (con cache). 501 si no hay TTS configurado."""
 import httpx
-from fastapi import APIRouter, HTTPException, Response
+from fastapi import APIRouter, HTTPException, Response, UploadFile, File
 from pydantic import BaseModel, Field
 
-from app.servicios import servicio_voz
+from app.servicios import servicio_voz, servicio_transcripcion
 
 router = APIRouter(prefix="/voz", tags=["voz"])
 
@@ -21,3 +21,14 @@ async def hablar(peticion: PeticionHablar):
     except httpx.HTTPError:
         raise HTTPException(502, "El proveedor de voz fallo")
     return Response(content=audio, media_type="audio/mpeg")
+
+@router.post("/transcribir")
+async def transcribir_audio(audio: UploadFile = File(...)):
+    contenido = await audio.read()
+    if not contenido:
+        raise HTTPException(400, "Audio vacío")
+    try:
+        texto = await servicio_transcripcion.transcribir(contenido, audio.filename or "audio.webm")
+    except httpx.HTTPError:
+        raise HTTPException(502, "Falló la transcripción")
+    return {"texto": texto}

@@ -33,8 +33,13 @@ export default function ListaRecetasPagina() {
             key={r.slug}
             to={`/recetas/${r.slug}`}
             onClick={() => detener()} // Detiene la lectura al hacer clic en una receta
-            className="flex items-center justify-between gap-4 rounded-2xl bg-[#8FB9A1] p-5 shadow-sm transition-transform active:scale-95 text-slate-900"
-            style={{ backgroundColor: "#8FB9A1" }}
+            className="flex items-center justify-between gap-4 rounded-2xl bg-[#FFFFFF] p-5 shadow-sm transition-transform active:scale-95 text-slate-900"
+            style={{ 
+              borderColor: "#8FB9A1",
+              borderWidth: "5px", // También puedes usar un número entero: borderWidth: 2
+              borderStyle: "solid"
+            }}
+            
           >
             <div className="flex-1">
               <h2 className="text-2xl font-extrabold text-slate-900 tracking-wide">
@@ -48,7 +53,9 @@ export default function ListaRecetasPagina() {
             {/* Círculo blanco con flecha idéntico a los mockups */}
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-sm shrink-0">
               <ChevronRight className="h-7 w-7 text-slate-900" aria-hidden />
+              
             </div>
+            
           </Link>
         ))}
       </div>

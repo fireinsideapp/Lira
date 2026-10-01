@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Response, UploadFile, File
 from pydantic import BaseModel, Field
-
+import httpx
 from app.servicios import servicio_voz, servicio_transcripcion
 
 router = APIRouter(prefix="/voz", tags=["voz"])

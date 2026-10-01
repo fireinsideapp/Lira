@@ -27,6 +27,7 @@ function Cocina({ receta }: { receta: Receta }) {
   const navigate = useNavigate();
   const sesion = useSesionCocina(receta);
   const { paso, iniciada, terminada } = sesion;
+  const [ultimoEscuchado, setUltimoEscuchado] = useState("");
 
   useBloqueoPantalla(iniciada && !terminada);
   const [reproducido, setReproducido] = useState(false);
@@ -38,7 +39,7 @@ function Cocina({ receta }: { receta: Receta }) {
 
     const ingredientesTexto = receta.ingredientes
       ?.map((i) => {
-        const partes = [i.cantidad, i.unidad, i.nombre].filter(Boolean);
+        const partes = [i.cantidad, i.nombre].filter(Boolean);
         return partes.join(" ");
       })
       .filter(Boolean)
@@ -112,7 +113,7 @@ function Cocina({ receta }: { receta: Receta }) {
                   <ul className="list-disc list-inside text-lg font-semibold text-slate-700 space-y-1">
                     {receta.ingredientes.map((ing, index) => (
                       <li key={index}>
-                        {ing.cantidad} {ing.unidad} {ing.nombre}
+                        {ing.cantidad} {ing.nombre}
                       </li>
                     ))}
                   </ul>
@@ -136,11 +137,16 @@ function Cocina({ receta }: { receta: Receta }) {
         )}
 
         {paso && (
-          <>
-            <VistaPaso paso={paso} total={sesion.total} />
-            {paso.estufa && <AlertaEstufa modo={paso.estufa} />}
-          </>
-        )}
+  <>
+    {ultimoEscuchado && (
+      <p className="rounded-2xl bg-slate-100 p-3 text-lg text-slate-600">
+        Escuché: "{ultimoEscuchado}"
+      </p>
+    )}
+    <VistaPaso paso={paso} total={sesion.total} />
+    {paso.estufa && <AlertaEstufa modo={paso.estufa} />}
+  </>
+)}
 
         {terminada && (
           <div className="rounded-3xl border-4 border-green-200 bg-green-50 p-6 text-center shadow-sm">
@@ -163,13 +169,15 @@ function Cocina({ receta }: { receta: Receta }) {
       </main>
 
       {iniciada && !terminada && (
-        <ControlesPaso
-          esUltimo={sesion.esUltimo}
-          alAnterior={sesion.anterior}
-          alSiguiente={sesion.siguiente}
-          alRepetir={sesion.repetir}
-        />
-      )}
+      <ControlesPaso
+        esUltimo={sesion.esUltimo}
+        alAnterior={sesion.anterior}
+        alSiguiente={sesion.siguiente}
+        alRepetir={sesion.repetir}
+        procesarTexto={sesion.procesarTexto}
+        alTranscribir={setUltimoEscuchado}
+      />
+    )}
     </div>
   );
 }

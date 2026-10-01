@@ -1,8 +1,7 @@
-// Sesion de cocina (fase 1, en el cliente): paso actual, avanzar, retroceder, repetir.
-// indice: -1 = sin empezar, 0..n-1 = paso actual, n = terminada.
-// Semana 2: el estado se mueve al servidor (servicio_cocina) para que Lyra y los comandos de voz lo compartan.
+// frontend/src/funciones/cocina/useSesionCocina.ts
 import { useEffect, useState } from "react";
 import { detener, hablar } from "../../voz";
+import { interpretarComando } from "../../voz/comandos/interpretarComando";
 import { useTemporizadores } from "../temporizadores/useTemporizadores";
 import type { Paso, Receta } from "../recetas/tipos";
 
@@ -19,7 +18,27 @@ export function useSesionCocina(receta: Receta) {
   const terminada = indice >= total;
   const paso = iniciada && !terminada ? pasos[indice] : null;
 
-  // Al cambiar de paso: Lyra lo lee y, si trae tiempo, arranca su temporizador.
+  // Declaradas como funciones normales para poder usarlas dentro de procesarTexto.
+  const iniciar = () => setIndice(0);
+  const siguiente = () => setIndice((i) => Math.min(i + 1, total));
+  const anterior = () => setIndice((i) => Math.max(i - 1, 0));
+  const repetir = () => (paso ? hablar(textoHablado(paso)) : undefined);
+
+  const procesarTexto = (texto: string) => {
+    const comando = interpretarComando(texto);
+    switch (comando.tipo) {
+      case "siguiente": return siguiente();
+      case "anterior": return anterior();
+      case "repetir": return repetir();
+      case "temporizador":
+        agregar(`manual-${Date.now()}`, "Temporizador", comando.segundos);
+        return hablar(`Listo, puse un temporizador de ${Math.round(comando.segundos / 60)} minutos.`);
+      case "desconocido":
+        // Cuando exista el LLM, aqui se mandara el texto a la conversacion libre.
+        return hablar("No te entendí bien. Puedes decir «siguiente», «repite» o «pon un temporizador».");
+    }
+  };
+
   useEffect(() => {
     if (!iniciada) return;
     if (terminada) {
@@ -33,15 +52,11 @@ export function useSesionCocina(receta: Receta) {
     }
   }, [indice]);
 
-  // Al salir de la pantalla, Lyra deja de hablar.
   useEffect(() => () => detener(), []);
 
   return {
     paso, total, iniciada, terminada, temporizadores, quitarTemporizador: quitar,
     esUltimo: indice === total - 1,
-    iniciar: () => setIndice(0),
-    siguiente: () => setIndice((i) => Math.min(i + 1, total)),
-    anterior: () => setIndice((i) => Math.max(i - 1, 0)),
-    repetir: () => (paso ? hablar(textoHablado(paso)) : undefined),
+    iniciar, siguiente, anterior, repetir, procesarTexto,
   };
 }

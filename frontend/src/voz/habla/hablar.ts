@@ -1,17 +1,12 @@
-// Lyra habla: entonación optimizada para máxima expresividad local.
+// Lyra habla: conexión fluida con ElevenLabs sin pausas forzadas.
 import { useVoz } from "../useVoz";
 import { detenerReproduccion, reproducirUrl } from "./reproductor";
 
 let turno = 0;          
-let sinTTS = false;     
+let sinTTS = false;    
 
 export function dividirFrases(texto: string): string[] {
-  // Optimizamos el texto agregando pausas naturales con puntos suspensivos
-  // y suavizando la lectura para que el navegador module mejor la voz.
-  const textoOptimizado = texto
-    .replace(/[#*_`]/g, "") 
-    .replace(/,\s+/g, "... ") // Las comas se convierten en pausas de aire
-    .replace(/\.\s+/g, ". ... "); // Los puntos añaden un respiro más profundo
+  const textoOptimizado = texto.replace(/[#*_`]/g, ""); 
 
   return textoOptimizado
     .split(/(?<=[.!?])\s+/)
@@ -21,7 +16,8 @@ export function dividirFrases(texto: string): string[] {
 
 async function pedirAudio(texto: string): Promise<string | null> {
   try {
-    const r = await fetch("/api/voz/hablar", {
+    const baseUrl = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+    const r = await fetch(`${baseUrl}/api/voz/hablar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ texto }),
@@ -38,7 +34,6 @@ function obtenerVozFemenina(): SpeechSynthesisVoice | null {
   if (!("speechSynthesis" in window)) return null;
   const voces = speechSynthesis.getVoices();
   
-  // Priorizamos las mejores voces en español disponibles en el equipo
   const mejorVoz = voces.find(
     (v) => v.lang.startsWith("es") && (
       v.name.toLowerCase().includes("helena") ||
@@ -63,8 +58,8 @@ function hablarConNavegador(texto: string): Promise<void> {
     
     const u = new SpeechSynthesisUtterance(texto);
     u.lang = "es-MX";
-    u.rate = 0.82;  // Ritmo súper pausado, ideal para que no atropelle las palabras
-    u.pitch = 1.12; // Tono ligeramente más alto para darle personalidad juvenil y cálida
+    u.rate = 0.82;  
+    u.pitch = 1.12; 
 
     const voz = obtenerVozFemenina();
     if (voz) {
@@ -91,7 +86,7 @@ export async function hablar(texto: string): Promise<void> {
     }
   }
 
-  useVoz.getState().setEstado("hablando");
+    useVoz.getState().setEstado("hablando");
 
   try {
     if (sinTTS) {

@@ -9,10 +9,11 @@ import { useRecetas } from "./api";
 export default function ListaRecetasPagina() {
   const { datos: recetas, error, reintentar } = useRecetas();
 
-  // Guía de voz automática al entrar a la lista de recetas
+  // Guía de voz automática: lee los nombres de las recetas disponibles
   useEffect(() => {
-    if (recetas) {
-      hablar("¿Qué vamos a cocinar hoy? Elige una receta para comenzar.");
+    if (recetas && recetas.length > 0) {
+      const nombres = recetas.map((r) => r.titulo).join(", ");
+      hablar(`¿Qué vamos a cocinar hoy? Tenemos disponibles: ${nombres}. Elige una receta para comenzar.`);
     }
     return () => {
       detener();

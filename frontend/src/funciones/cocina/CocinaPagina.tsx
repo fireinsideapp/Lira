@@ -1,6 +1,6 @@
-// Pantalla de cocina: intro -> pasos guiados con voz.
+// Pantalla de cocina: intro -> lectura automática activada por el primer toque.
 import { ArrowLeft, ChefHat, Volume2 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBloqueoPantalla } from "../../compartido/hooks/useBloqueoPantalla";
 import { BotonGrande } from "../../compartido/ui/BotonGrande";
@@ -29,13 +29,19 @@ function Cocina({ receta }: { receta: Receta }) {
   const { paso, iniciada, terminada } = sesion;
 
   useBloqueoPantalla(iniciada && !terminada);
-  const [audioDesbloqueado, setAudioDesbloqueado] = useState(false);
+  const [reproducido, setReproducido] = useState(false);
 
   const reproducirLecturaReceta = () => {
+    if (reproducido) return;
+    setReproducido(true);
     detener();
 
     const ingredientesTexto = receta.ingredientes
-      ?.map((i) => `${i.cantidad || ""} ${i.unidad || ""} ${i.nombre}`)
+      ?.map((i) => {
+        const partes = [i.cantidad, i.unidad, i.nombre].filter(Boolean);
+        return partes.join(" ");
+      })
+      .filter(Boolean)
       .join(", ");
 
     const mensajeCompleto = ingredientesTexto
@@ -43,17 +49,16 @@ function Cocina({ receta }: { receta: Receta }) {
       : `Receta de ${receta.titulo}. ${receta.descripcion}. Presiona el botón verde para comenzar.`;
 
     hablar(mensajeCompleto);
-    setAudioDesbloqueado(true);
   };
 
-  // Intentamos reproducir al cargar
+  // Intentamos reproducir en automático al cargar
   useEffect(() => {
     if (!iniciada && !terminada && receta && recetaPresentadaSlug !== receta.slug) {
       recetaPresentadaSlug = receta.slug;
       
       const timer = setTimeout(() => {
         reproducirLecturaReceta();
-      }, 400);
+      }, 300);
 
       return () => {
         clearTimeout(timer);
@@ -72,11 +77,7 @@ function Cocina({ receta }: { receta: Receta }) {
 
   return (
     <div 
-      onClick={() => {
-        if (!audioDesbloqueado) {
-          reproducirLecturaReceta();
-        }
-      }}
+      onClick={() => reproducirLecturaReceta()}
       className="flex flex-1 flex-col max-w-md mx-auto w-full bg-white min-h-screen relative pb-10"
     >
       <header className="flex items-center justify-between p-5 pb-2">
@@ -118,24 +119,9 @@ function Cocina({ receta }: { receta: Receta }) {
                 </div>
               )}
 
-              {/* Botón de aviso para liberar el audio del navegador al primer toque */}
-              {!audioDesbloqueado && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    reproducirLecturaReceta();
-                  }}
-                  className="mt-2 flex items-center justify-center gap-3 rounded-2xl bg-[#8FB9A1] p-4 text-xl font-bold text-slate-900 shadow-md active:scale-95 transition-transform"
-                >
-                  <Volume2 className="h-7 w-7 shrink-0" /> Toca aquí para que Lyra comience a hablar
-                </button>
-              )}
-
-              {audioDesbloqueado && (
-                <p className="mt-2 flex items-center justify-center gap-3 text-xl font-semibold text-slate-700">
-                  <Volume2 className="h-7 w-7 shrink-0 text-[#8FB9A1]" aria-hidden /> Lyra te está leyendo la receta...
-                </p>
-              )}
+              <p className="mt-2 flex items-center justify-center gap-3 text-xl font-semibold text-slate-700">
+                <Volume2 className="h-7 w-7 shrink-0 text-[#8FB9A1]" aria-hidden /> Toca cualquier parte de la pantalla para escuchar a Lyra
+              </p>
             </div>
 
             <BotonGrande onClick={(e) => {

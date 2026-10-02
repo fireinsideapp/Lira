@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import recetas, voz
+from app.api import recetas, voz, conversacion 
 from app.bd.base import Base
 from app.bd.sesion import Sesion, engine
 from app.configuracion import config
@@ -36,7 +36,7 @@ app.add_middleware(
 
 app.include_router(recetas.router, prefix="/api")
 app.include_router(voz.router, prefix="/api")
-
+app.include_router(conversacion.router, prefix="/api")
 
 @app.get("/api/salud")
 async def salud():

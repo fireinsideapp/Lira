@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { detener, hablar } from "../../voz";
 import { interpretarComando } from "../../voz/comandos/interpretarComando";
+import { preguntarLyra } from "../conversacion/api";
 import { useTemporizadores } from "../temporizadores/useTemporizadores";
 import type { Paso, Receta } from "../recetas/tipos";
 
@@ -18,13 +19,12 @@ export function useSesionCocina(receta: Receta) {
   const terminada = indice >= total;
   const paso = iniciada && !terminada ? pasos[indice] : null;
 
-  // Declaradas como funciones normales para poder usarlas dentro de procesarTexto.
   const iniciar = () => setIndice(0);
   const siguiente = () => setIndice((i) => Math.min(i + 1, total));
   const anterior = () => setIndice((i) => Math.max(i - 1, 0));
   const repetir = () => (paso ? hablar(textoHablado(paso)) : undefined);
 
-  const procesarTexto = (texto: string) => {
+  const procesarTexto = async (texto: string) => {
     const comando = interpretarComando(texto);
     switch (comando.tipo) {
       case "siguiente": return siguiente();
@@ -33,9 +33,15 @@ export function useSesionCocina(receta: Receta) {
       case "temporizador":
         agregar(`manual-${Date.now()}`, "Temporizador", comando.segundos);
         return hablar(`Listo, puse un temporizador de ${Math.round(comando.segundos / 60)} minutos.`);
-      case "desconocido":
-        // Cuando exista el LLM, aqui se mandara el texto a la conversacion libre.
-        return hablar("No te entendí bien. Puedes decir «siguiente», «repite» o «pon un temporizador».");
+      case "desconocido": {
+        if (!paso) return hablar("No te entendí bien.");
+        try {
+          const respuesta = await preguntarLyra(receta.titulo, paso.texto, texto);
+          return hablar(respuesta);
+        } catch {
+          return hablar("No pude pensar en eso ahora. Puedes decir «siguiente» o «repite».");
+        }
+      }
     }
   };
 

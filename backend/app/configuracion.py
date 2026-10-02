@@ -17,6 +17,8 @@ class Configuracion(BaseSettings):
     id_voz: str = ""
     modelo_tts: str = ""
     velocidad_voz: float = 0.9
+    gemini_api_key: str = ""
+    modelo_llm: str = "gemini-3.1-flash-lite"  # alias: siempre apunta al Flash vigente de Google
 
     carpeta_recetas: Path = RAIZ / "datos_iniciales" / "recetas"
     carpeta_cache_audio: Path = RAIZ / "cache_audio"

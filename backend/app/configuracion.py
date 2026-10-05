@@ -7,8 +7,7 @@ RAIZ = Path(__file__).resolve().parents[1]  # carpeta backend/
 
 class Configuracion(BaseSettings):
     model_config = SettingsConfigDict(env_file=RAIZ / ".env", extra="ignore")
-
-    database_url: str = "sqlite+aiosqlite:///./lyra.db"
+    database_url: str = "postgresql+asyncpg://postgres:root@127.0.0.1:5432/Lyra"
 
     # TTS: "openai", "elevenlabs" o vacio (el frontend usa la voz del navegador)
     proveedor_tts: str = ""
@@ -23,5 +22,14 @@ class Configuracion(BaseSettings):
     carpeta_recetas: Path = RAIZ / "datos_iniciales" / "recetas"
     carpeta_cache_audio: Path = RAIZ / "cache_audio"
 
+    @property
+    def database_url_normalizada(self) -> str:
+        """Railway entrega postgres:// ; SQLAlchemy async necesita postgresql+asyncpg://"""
+        url = self.database_url
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif url.startswith("postgresql://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
 
 config = Configuracion()

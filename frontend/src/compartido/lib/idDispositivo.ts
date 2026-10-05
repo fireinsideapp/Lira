@@ -1,3 +1,10 @@
-/**
- * Genera un UUID anonimo la primera vez y lo guarda en localStorage. Es la 'identidad' del usuario en el MVP (sin cuentas).
- */
+// frontend/src/compartido/lib/idDispositivo.ts
+export function obtenerIdDispositivo(): string {
+  const clave = "lyra-dispositivo-id";
+  let id = localStorage.getItem(clave);
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem(clave, id);
+  }
+  return id;
+}

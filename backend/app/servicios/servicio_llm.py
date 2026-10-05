@@ -1,10 +1,10 @@
-# backend/app/servicios/servicio_llm.py
 """Cliente de Gemini (Google AI Studio) para la conversacion libre de Lyra.
-Se usa SOLO cuando interpretarComando no reconoce la frase como un comando (siguiente, repite, temporizador).
-"""
+Se usa SOLO cuando interpretarComando no reconoce la frase como un comando (siguiente, repite, temporizador)."""
 import httpx
 
 from app.configuracion import config
+from app.modelos.mensaje import MensajeConversacion
+from app.modelos.perfil import Perfil
 
 PERSONALIDAD = """Eres Lyra, una asistente de cocina por voz para personas mayores. Tu tono es calido, paciente y breve.
 
@@ -22,23 +22,44 @@ class LLMNoConfigurado(Exception):
     """No hay clave de Gemini configurada."""
 
 
-async def preguntar(receta_titulo: str, paso_texto: str, pregunta_usuario: str) -> str:
+def _tratamiento_texto(tratamiento: str) -> str:
+    return "de usted" if tratamiento == "usted" else "de tu"
+
+
+async def preguntar(
+    receta_titulo: str,
+    paso_texto: str,
+    pregunta_usuario: str,
+    perfil: Perfil | None = None,
+    historial: list[MensajeConversacion] | None = None,
+) -> str:
     if not config.gemini_api_key:
         raise LLMNoConfigurado()
 
-    contexto = (
+    partes_contexto = [PERSONALIDAD]
+
+    if perfil and perfil.nombre:
+        partes_contexto.append(
+            f"La persona se llama {perfil.nombre} y prefieres hablarle {_tratamiento_texto(perfil.tratamiento)}."
+        )
+
+    if historial:
+        lineas = [f"{'Persona' if m.rol == 'usuario' else 'Lyra'}: {m.texto}" for m in historial]
+        partes_contexto.append("Esto es lo último que hablaron:\n" + "\n".join(lineas))
+
+    partes_contexto.append(
         f"Receta actual: {receta_titulo}\n"
         f"Paso en el que va la persona ahora mismo: {paso_texto}\n\n"
-        f"La persona dijo: \"{pregunta_usuario}\"\n\n"
+        f"La persona dijo ahora: \"{pregunta_usuario}\"\n\n"
         "Respondele como Lyra, breve y calida."
     )
+    contexto = "\n\n".join(partes_contexto)
 
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
         f"{config.modelo_llm}:generateContent?key={config.gemini_api_key}"
     )
     cuerpo = {
-        "system_instruction": {"parts": [{"text": PERSONALIDAD}]},
         "contents": [{"role": "user", "parts": [{"text": contexto}]}],
         "generationConfig": {"maxOutputTokens": 150, "temperature": 0.6},
     }

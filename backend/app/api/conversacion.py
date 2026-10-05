@@ -1,10 +1,12 @@
-# backend/app/api/conversacion.py
-"""POST /api/conversacion: le pasa la pregunta libre del usuario a Gemini, con el contexto de la receta."""
+"""POST /api/conversacion: le pasa la pregunta libre del usuario a Gemini, con perfil + historial + receta."""
 import httpx
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.servicios import servicio_llm
+from app.bd.sesion import obtener_sesion
+from app.dependencias import asegurar_dispositivo, obtener_dispositivo_id
+from app.servicios import servicio_llm, servicio_memoria
 
 router = APIRouter(prefix="/conversacion", tags=["conversacion"])
 
@@ -16,10 +18,18 @@ class PeticionConversacion(BaseModel):
 
 
 @router.post("")
-async def conversar(peticion: PeticionConversacion):
+async def conversar(
+    peticion: PeticionConversacion,
+    dispositivo_id: str = Depends(obtener_dispositivo_id),
+    sesion: AsyncSession = Depends(obtener_sesion),
+):
+    await asegurar_dispositivo(dispositivo_id, sesion)
+    perfil = await servicio_memoria.obtener_perfil(sesion, dispositivo_id)
+    historial = await servicio_memoria.obtener_historial_reciente(sesion, dispositivo_id)
+
     try:
         respuesta = await servicio_llm.preguntar(
-            peticion.receta_titulo, peticion.paso_texto, peticion.pregunta
+            peticion.receta_titulo, peticion.paso_texto, peticion.pregunta, perfil, historial
         )
     except servicio_llm.LLMNoConfigurado:
         print("ERROR: Gemini no configurado (falta GEMINI_API_KEY)", flush=True)
@@ -32,4 +42,8 @@ async def conversar(peticion: PeticionConversacion):
     except Exception as e:
         print("ERROR INESPERADO:", repr(e), flush=True)
         raise HTTPException(502, "Error inesperado")
+
+    await servicio_memoria.guardar_mensaje(sesion, dispositivo_id, "usuario", peticion.pregunta)
+    await servicio_memoria.guardar_mensaje(sesion, dispositivo_id, "lyra", respuesta)
+
     return {"respuesta": respuesta}

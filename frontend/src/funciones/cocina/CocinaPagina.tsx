@@ -1,6 +1,6 @@
-// Pantalla de cocina: intro -> lectura automática activada por el primer toque.
+// frontend/src/funciones/cocina/CocinaPagina.tsx
 import { ArrowLeft, ChefHat, Volume2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBloqueoPantalla } from "../../compartido/hooks/useBloqueoPantalla";
 import { BotonGrande } from "../../compartido/ui/BotonGrande";
@@ -14,8 +14,6 @@ import { ControlesPaso } from "./componentes/ControlesPaso";
 import { useSesionCocina } from "./useSesionCocina";
 import { VistaPaso } from "./VistaPaso";
 
-let recetaPresentadaSlug = "";
-
 export default function CocinaPagina() {
   const { slug = "" } = useParams();
   const { datos: receta, error, reintentar } = useReceta(slug);
@@ -28,67 +26,50 @@ function Cocina({ receta }: { receta: Receta }) {
   const sesion = useSesionCocina(receta);
   const { paso, iniciada, terminada } = sesion;
   const [ultimoEscuchado, setUltimoEscuchado] = useState("");
+  const yaLeidaRef = useRef(false); // evita releer si React re-renderiza el mismo slug
 
   useBloqueoPantalla(iniciada && !terminada);
-  const [reproducido, setReproducido] = useState(false);
 
-  const reproducirLecturaReceta = () => {
-    if (reproducido) return;
-    setReproducido(true);
+  const leerIntroduccion = () => {
     detener();
-
     const ingredientesTexto = receta.ingredientes
-      ?.map((i) => {
-        const partes = [i.cantidad, i.nombre].filter(Boolean);
-        return partes.join(" ");
-      })
+      ?.map((i) => [i.cantidad, i.nombre].filter(Boolean).join(" "))
       .filter(Boolean)
       .join(", ");
 
-    const mensajeCompleto = ingredientesTexto
-      ? `Receta de ${receta.titulo}. ${receta.descripcion}. Los ingredientes necesarios son: ${ingredientesTexto}. Presiona el botón verde para comenzar.`
-      : `Receta de ${receta.titulo}. ${receta.descripcion}. Presiona el botón verde para comenzar.`;
+    const mensaje = ingredientesTexto
+      ? `Receta de ${receta.titulo}. ${receta.descripcion}. Los ingredientes necesarios son: ${ingredientesTexto}.`
+      : `Receta de ${receta.titulo}. ${receta.descripcion}.`;
 
-    hablar(mensajeCompleto);
+    hablar(mensaje);
   };
 
-  // Intentamos reproducir en automático al cargar
+  // Lectura automatica: solo una vez, solo mientras seguimos en la intro (!iniciada).
+  // No hay ningun onClick en el contenedor padre, asi que esto no interfiere con los pasos despues.
   useEffect(() => {
-    if (!iniciada && !terminada && receta && recetaPresentadaSlug !== receta.slug) {
-      recetaPresentadaSlug = receta.slug;
-      
-      const timer = setTimeout(() => {
-        reproducirLecturaReceta();
-      }, 300);
-
-      return () => {
-        clearTimeout(timer);
-        detener();
-      };
+    if (!iniciada && !yaLeidaRef.current) {
+      yaLeidaRef.current = true;
+      leerIntroduccion();
     }
-  }, [iniciada, terminada, receta]);
+    return () => {
+      if (!iniciada) detener();
+    };
+  }, [iniciada]);
 
   const salir = () => {
     if (!iniciada || terminada || window.confirm("¿Quieres salir de la receta?")) {
       detener();
-      recetaPresentadaSlug = "";
       navigate("/recetas");
     }
   };
 
   return (
-    <div 
-      onClick={() => reproducirLecturaReceta()}
-      className="flex flex-1 flex-col max-w-md mx-auto w-full bg-white min-h-screen relative pb-10"
-    >
+    <div className="flex flex-1 flex-col max-w-md mx-auto w-full bg-white min-h-screen relative pb-10">
       <header className="flex items-center justify-between p-5 pb-2">
         <div className="flex items-center gap-3">
-          <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              salir();
-            }} 
-            aria-label="Salir de la receta" 
+          <button
+            onClick={salir}
+            aria-label="Salir de la receta"
             className="rounded-2xl bg-[#8FB9A1]/20 p-3 text-slate-900 active:bg-[#8FB9A1]/40 transition-colors"
           >
             <ArrowLeft className="h-8 w-8" />
@@ -100,12 +81,13 @@ function Cocina({ receta }: { receta: Receta }) {
       <main className="flex flex-1 flex-col gap-5 p-5">
         {!iniciada && (
           <>
-            <div className="rounded-3xl border-4 border-[#8FB9A1]/30 bg-white p-6 text-center shadow-md flex flex-col gap-4">
+            <button
+              onClick={leerIntroduccion}
+              className="rounded-3xl border-4 border-[#8FB9A1]/30 bg-white p-6 text-center shadow-md flex flex-col gap-4 w-full active:bg-[#8FB9A1]/10"
+            >
               <ChefHat className="mx-auto h-16 w-16 text-[#8FB9A1]" aria-hidden />
-              
-              <p className="text-2xl font-bold leading-snug text-slate-900">
-                {receta.descripcion}
-              </p>
+
+              <p className="text-2xl font-bold leading-snug text-slate-900">{receta.descripcion}</p>
 
               {receta.ingredientes && receta.ingredientes.length > 0 && (
                 <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-left">
@@ -121,32 +103,32 @@ function Cocina({ receta }: { receta: Receta }) {
               )}
 
               <p className="mt-2 flex items-center justify-center gap-3 text-xl font-semibold text-slate-700">
-                <Volume2 className="h-7 w-7 shrink-0 text-[#8FB9A1]" aria-hidden /> Toca cualquier parte de la pantalla para escuchar a Lyra
+                <Volume2 className="h-7 w-7 shrink-0 text-[#8FB9A1]" aria-hidden /> Toca aquí para volver a escucharla
               </p>
-            </div>
+            </button>
 
-            <BotonGrande onClick={(e) => {
-              e.stopPropagation();
-              detener();
-              recetaPresentadaSlug = "";
-              sesion.iniciar();
-            }}>
+            <BotonGrande
+              onClick={() => {
+                detener();
+                sesion.iniciar();
+              }}
+            >
               Empezar a cocinar
             </BotonGrande>
           </>
         )}
 
         {paso && (
-  <>
-    {ultimoEscuchado && (
-      <p className="rounded-2xl bg-slate-100 p-3 text-lg text-slate-600">
-        Escuché: "{ultimoEscuchado}"
-      </p>
-    )}
-    <VistaPaso paso={paso} total={sesion.total} />
-    {paso.estufa && <AlertaEstufa modo={paso.estufa} />}
-  </>
-)}
+          <>
+            {ultimoEscuchado && (
+              <p className="rounded-2xl bg-slate-100 p-3 text-lg text-slate-600">
+                Escuché: "{ultimoEscuchado}"
+              </p>
+            )}
+            <VistaPaso paso={paso} total={sesion.total} />
+            {paso.estufa && <AlertaEstufa modo={paso.estufa} />}
+          </>
+        )}
 
         {terminada && (
           <div className="rounded-3xl border-4 border-green-200 bg-green-50 p-6 text-center shadow-sm">
@@ -169,15 +151,15 @@ function Cocina({ receta }: { receta: Receta }) {
       </main>
 
       {iniciada && !terminada && (
-      <ControlesPaso
-        esUltimo={sesion.esUltimo}
-        alAnterior={sesion.anterior}
-        alSiguiente={sesion.siguiente}
-        alRepetir={sesion.repetir}
-        procesarTexto={sesion.procesarTexto}
-        alTranscribir={setUltimoEscuchado}
-      />
-    )}
+        <ControlesPaso
+          esUltimo={sesion.esUltimo}
+          alAnterior={sesion.anterior}
+          alSiguiente={sesion.siguiente}
+          alRepetir={sesion.repetir}
+          procesarTexto={sesion.procesarTexto}
+          alTranscribir={setUltimoEscuchado}
+        />
+      )}
     </div>
   );
 }

@@ -3,17 +3,26 @@ import { useEffect, useState } from "react";
 import { detener, hablar } from "../../voz";
 import { interpretarComando } from "../../voz/comandos/interpretarComando";
 import { preguntarLyra } from "../conversacion/api";
+import { obtenerPerfil } from "../perfil/api";
 import { useTemporizadores } from "../temporizadores/useTemporizadores";
 import type { Paso, Receta } from "../recetas/tipos";
 
-const textoHablado = (p: Paso) =>
+const textoPaso = (p: Paso) =>
   `Paso ${p.orden}. ${p.texto}${p.nota_seguridad ? ` ${p.nota_seguridad}` : ""}`;
 
 export function useSesionCocina(receta: Receta) {
   const { pasos } = receta;
   const total = pasos.length;
   const [indice, setIndice] = useState(-1);
+  const [nombre, setNombre] = useState<string | null>(null);
   const { temporizadores, agregar, quitar } = useTemporizadores();
+
+  // Si falla la carga del perfil, seguimos sin nombre: nunca bloquea la receta.
+  useEffect(() => {
+    obtenerPerfil()
+      .then((p) => setNombre(p.nombre))
+      .catch(() => setNombre(null));
+  }, []);
 
   const iniciada = indice >= 0;
   const terminada = indice >= total;
@@ -22,7 +31,7 @@ export function useSesionCocina(receta: Receta) {
   const iniciar = () => setIndice(0);
   const siguiente = () => setIndice((i) => Math.min(i + 1, total));
   const anterior = () => setIndice((i) => Math.max(i - 1, 0));
-  const repetir = () => (paso ? hablar(textoHablado(paso)) : undefined);
+  const repetir = () => (paso ? hablar(textoPaso(paso)) : undefined);
 
   const procesarTexto = async (texto: string) => {
     const comando = interpretarComando(texto);
@@ -48,11 +57,15 @@ export function useSesionCocina(receta: Receta) {
   useEffect(() => {
     if (!iniciada) return;
     if (terminada) {
-      hablar("¡Terminamos! Buen provecho.");
+      hablar(`¡Terminamos${nombre ? `, ${nombre}` : ""}! Buen provecho.`);
       return;
     }
     const p = pasos[indice];
-    hablar(textoHablado(p));
+    const texto =
+      indice === 0
+        ? `Vamos a preparar ${receta.titulo}${nombre ? `, ${nombre}` : ""}. ${textoPaso(p)}`
+        : textoPaso(p);
+    hablar(texto);
     if (p.temporizador_segundos) {
       agregar(`paso-${p.orden}`, p.temporizador_nombre ?? `Paso ${p.orden}`, p.temporizador_segundos);
     }

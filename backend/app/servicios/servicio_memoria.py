@@ -1,11 +1,13 @@
-"""Perfil e historial corto de conversacion, usados para personalizar las respuestas de Lyra."""
+"""Perfil, historial corto e hechos importantes, usados para personalizar las respuestas de Lyra."""
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.modelos.hecho_memoria import HechoMemoria
 from app.modelos.mensaje import MensajeConversacion
 from app.modelos.perfil import Perfil
 
-MAXIMO_MENSAJES_CONTEXTO = 6  # ~3 intercambios; suficiente para dar continuidad sin gastar de mas en tokens
+MAXIMO_MENSAJES_CONTEXTO = 6
+MAXIMO_HECHOS_CONTEXTO = 5
 
 
 async def obtener_perfil(sesion: AsyncSession, dispositivo_id: str) -> Perfil | None:
@@ -38,4 +40,19 @@ async def obtener_historial_reciente(sesion: AsyncSession, dispositivo_id: str) 
 
 async def guardar_mensaje(sesion: AsyncSession, dispositivo_id: str, rol: str, texto: str) -> None:
     sesion.add(MensajeConversacion(dispositivo_id=dispositivo_id, rol=rol, texto=texto))
+    await sesion.commit()
+
+
+async def obtener_hechos_recientes(sesion: AsyncSession, dispositivo_id: str) -> list[HechoMemoria]:
+    resultado = await sesion.execute(
+        select(HechoMemoria)
+        .where(HechoMemoria.dispositivo_id == dispositivo_id)
+        .order_by(HechoMemoria.id.desc())
+        .limit(MAXIMO_HECHOS_CONTEXTO)
+    )
+    return list(resultado.scalars().all())
+
+
+async def guardar_hecho(sesion: AsyncSession, dispositivo_id: str, texto: str) -> None:
+    sesion.add(HechoMemoria(dispositivo_id=dispositivo_id, texto=texto))
     await sesion.commit()

@@ -1,4 +1,4 @@
-"""POST /api/conversacion: le pasa la pregunta libre del usuario a Gemini, con perfil + historial + receta."""
+"""POST /api/conversacion: le pasa la pregunta libre del usuario a Gemini, con perfil + historial + hechos + receta."""
 import httpx
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
@@ -26,10 +26,11 @@ async def conversar(
     await asegurar_dispositivo(dispositivo_id, sesion)
     perfil = await servicio_memoria.obtener_perfil(sesion, dispositivo_id)
     historial = await servicio_memoria.obtener_historial_reciente(sesion, dispositivo_id)
+    hechos = await servicio_memoria.obtener_hechos_recientes(sesion, dispositivo_id)
 
     try:
-        respuesta = await servicio_llm.preguntar(
-            peticion.receta_titulo, peticion.paso_texto, peticion.pregunta, perfil, historial
+        respuesta, hecho_nuevo = await servicio_llm.preguntar(
+            peticion.receta_titulo, peticion.paso_texto, peticion.pregunta, perfil, historial, hechos
         )
     except servicio_llm.LLMNoConfigurado:
         print("ERROR: Gemini no configurado (falta GEMINI_API_KEY)", flush=True)
@@ -45,5 +46,7 @@ async def conversar(
 
     await servicio_memoria.guardar_mensaje(sesion, dispositivo_id, "usuario", peticion.pregunta)
     await servicio_memoria.guardar_mensaje(sesion, dispositivo_id, "lyra", respuesta)
+    if hecho_nuevo:
+        await servicio_memoria.guardar_hecho(sesion, dispositivo_id, hecho_nuevo)
 
     return {"respuesta": respuesta}

@@ -13,7 +13,7 @@ from app.modelos import dispositivo as _modelo_dispositivo  # noqa: F401
 from app.modelos import perfil as _modelo_perfil  # noqa: F401
 from app.modelos import mensaje as _modelo_mensaje  # noqa: F401
 from app.servicios.servicio_recetas import sembrar
-
+from app.modelos import hecho_memoria as _modelo_hecho  # noqa: F401
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

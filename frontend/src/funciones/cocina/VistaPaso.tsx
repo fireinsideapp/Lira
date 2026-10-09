@@ -11,6 +11,18 @@ export function VistaPaso({ paso, total }: { paso: Paso; total: number }) {
       <p className="text-3xl font-bold leading-snug text-slate-900" aria-live="polite">
         {paso.texto}
       </p>
+
+      {/* Imagen opcional del paso */}
+      {paso.imagen && (
+        <div className="mt-4 overflow-hidden rounded-2xl border-2 border-slate-200">
+          <img 
+            src={paso.imagen} 
+            alt={`Ilustración del paso ${paso.orden}`} 
+            className="h-64 w-full object-cover"
+          />
+        </div>
+      )}
+
       {paso.nota_seguridad && (
         <p className="mt-4 flex items-start gap-3 rounded-2xl bg-amber-100 p-4 text-2xl font-bold text-amber-900">
           <TriangleAlert className="mt-1 h-8 w-8 shrink-0" aria-hidden />

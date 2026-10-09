@@ -12,6 +12,7 @@ export interface Paso {
   temporizador_nombre: string | null;
   nota_seguridad: string | null;
   estufa: "encendida" | "apagar" | null;
+  imagen?: string; // <--- Campo opcional agregado para la imagen del paso
 }
 
 export interface RecetaResumen {

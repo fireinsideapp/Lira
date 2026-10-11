@@ -1,6 +1,13 @@
-// Tarjeta del paso actual: contador, texto grande y nota de seguridad destacada.
+// Tarjeta del paso actual: contador, texto grande, imagen opcional y nota de seguridad destacada.
 import { TriangleAlert } from "lucide-react";
 import type { Paso } from "../recetas/tipos";
+
+// Si el JSON trae solo el nombre ("rojos-paso1.jpg"), se busca en /recetas/.
+// Si ya trae una ruta ("/recetas/..." o "http..."), se usa tal cual.
+function rutaImagen(imagen: string): string {
+  if (imagen.startsWith("/") || imagen.startsWith("http")) return imagen;
+  return `/recetas/${imagen}`;
+}
 
 export function VistaPaso({ paso, total }: { paso: Paso; total: number }) {
   return (
@@ -14,11 +21,12 @@ export function VistaPaso({ paso, total }: { paso: Paso; total: number }) {
 
       {/* Imagen opcional del paso */}
       {paso.imagen && (
-        <div className="mt-4 overflow-hidden rounded-2xl border-2 border-slate-200">
-          <img 
-            src={paso.imagen} 
-            alt={`Ilustración del paso ${paso.orden}`} 
-            className="h-64 w-full object-cover"
+        <div className="mt-4 overflow-hidden rounded-2xl border-2 border-slate-200 bg-slate-50">
+          <img
+            src={rutaImagen(paso.imagen)}
+            alt={`Ilustración del paso ${paso.orden}: ${paso.texto}`}
+            className="max-h-80 w-full object-contain"
+            loading="lazy"
           />
         </div>
       )}

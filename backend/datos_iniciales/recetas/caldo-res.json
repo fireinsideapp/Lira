@@ -1,0 +1,92 @@
+{
+  "_comentario": "Receta de elaboración propia. Cocinar la carne y las verduras hasta que estén completamente cocidas y tiernas.",
+  "slug": "caldo-res-verduras",
+  "titulo": "Caldo de res con verduras",
+  "descripcion": "Caldo casero de res con papa, zanahoria, calabacita y elote, preparado con verduras bien cocidas.",
+  "porciones": 4,
+  "ingredientes": [
+    {
+      "nombre": "Carne de res para caldo sin exceso de grasa",
+      "cantidad": "500 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Papa",
+      "cantidad": "250 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Calabacita",
+      "cantidad": "200 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Elote",
+      "cantidad": "1 pieza de 200 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "150 g",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "50 g",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "2 litros",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Sal",
+      "cantidad": "2 g",
+      "grupo": "Sazonador"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava las verduras. Pela la papa y la zanahoria, corta la carne en trozos medianos y divide el elote en cuatro partes.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Usa una tabla estable y mantén separados los utensilios que toquen carne cruda.",
+      "imagen": "/recetas/caldo-res-paso1.jpeg"
+    },
+    {
+      "texto": "Coloca la carne y el agua en una olla. Lleva a hervor y después reduce el fuego. Cocina hasta que la carne comience a ablandarse.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": 60,
+      "temporizador_nombre": "Revisar la cocción de la carne",
+      "nota_seguridad": "Evita acercar el rostro al vapor y vigila el nivel del agua.",
+      "imagen": "/recetas/caldo-res-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega el elote, la papa y la zanahoria. Incorpora el jitomate y la cebolla picados. Continúa cocinando hasta que la carne y las verduras estén tiernas.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 25,
+      "temporizador_nombre": "Revisar la carne y las verduras",
+      "nota_seguridad": "Mueve con cuidado para evitar salpicaduras del caldo caliente.",
+      "imagen": "/recetas/caldo-res-paso3.jpeg"
+    },
+    {
+      "texto": "Añade la calabacita y cocina hasta que esté suave. Agrega la sal, apaga la estufa y sirve el caldo con la carne y las verduras cortadas en trozos pequeños.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": 10,
+      "temporizador_nombre": "Revisar la calabacita",
+      "nota_seguridad": "Retira los huesos y comprueba que no haya fragmentos duros antes de servir.",
+      "imagen": "/recetas/caldo-res-paso4.jpeg"
+    }
+  ]
+}

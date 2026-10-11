@@ -1,0 +1,91 @@
+{
+"_comentario": "Receta de elaboración propia. Las albóndigas de res molida deben alcanzar al menos 71 °C en el centro. Los tiempos son aproximados y deben ajustarse hasta que la carne, el arroz y las verduras estén completamente cocidos.",
+"slug": "albondigas-res-caldo-verduras",
+"titulo": "Albóndigas de res en caldo de verduras",
+"descripcion": "Albóndigas suaves de carne molida con arroz, cocidas en un caldo casero de jitomate, zanahoria y calabacita, con verduras tiernas y poca sal añadida.",
+"porciones": 4,
+"ingredientes": [
+{
+"nombre": "Carne molida de res",
+"cantidad": "400 g",
+"grupo": "Albóndigas"
+},
+{
+"nombre": "Arroz crudo",
+"cantidad": "40 g",
+"grupo": "Albóndigas"
+},
+{
+"nombre": "Zanahoria",
+"cantidad": "150 g",
+"grupo": "Verduras"
+},
+{
+"nombre": "Calabacita",
+"cantidad": "200 g",
+"grupo": "Verduras"
+},
+{
+"nombre": "Jitomate",
+"cantidad": "250 g",
+"grupo": "Caldo"
+},
+{
+"nombre": "Cebolla",
+"cantidad": "50 g",
+"grupo": "Caldo"
+},
+{
+"nombre": "Agua",
+"cantidad": "1.5 litros",
+"grupo": "Caldo"
+}
+],
+"pasos": [
+{
+"texto": "Enjuaga el arroz con agua potable y escúrrelo. Coloca la carne molida en un recipiente y mézclala con el arroz crudo. Con las manos limpias, forma albóndigas pequeñas y de tamaño uniforme, de aproximadamente 3 a 4 cm de diámetro.",
+"estufa": null,
+"orden": 1,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": "Mantén la carne cruda separada de los alimentos listos para comer. Lávate las manos y limpia los utensilios y superficies después de manipularla.",
+"imagen": "/recetas/albondigas-res-caldo-paso1.jpeg"
+},
+{
+"texto": "Lava los jitomates y licúalos con la cebolla y aproximadamente 200 ml del agua. Vierte la mezcla en una olla, agrega el agua restante y calienta a fuego medio hasta que comience a hervir suavemente. Después, reduce el fuego para evitar salpicaduras.",
+"estufa": "encendida",
+"orden": 2,
+"temporizador_minutos": 10,
+"temporizador_nombre": "Calentar el caldo",
+"nota_seguridad": "Los 10 minutos son aproximados: vigila la olla y continúa hasta que el caldo alcance un hervor suave. Usa una olla estable y evita acercar el rostro al vapor.",
+"imagen": "/recetas/albondigas-res-caldo-paso2.jpeg"
+},
+{
+"texto": "Agrega cuidadosamente las albóndigas al caldo caliente, una por una y sin amontonarlas. Tapa parcialmente y cocina a fuego bajo durante 20 minutos. Comprueba que el centro de una de las albóndigas más grandes alcance al menos 71 °C. Si aún no está lista, continúa la cocción y revisa nuevamente cada 5 minutos. El arroz puede terminar de suavizarse mientras las albóndigas se cocinan.",
+"estufa": "encendida",
+"orden": 3,
+"temporizador_minutos": 20,
+"temporizador_nombre": "Cocinar las albóndigas",
+"nota_seguridad": "El temporizador indica cuándo revisar, no garantiza que la carne esté lista. Para mayor seguridad, utiliza un termómetro de alimentos y verifica que el centro alcance al menos 71 °C.",
+"imagen": "/recetas/albondigas-res-caldo-paso3.jpeg"
+},
+{
+"texto": "Pela la zanahoria si lo deseas y córtala en cubos pequeños. Lava la calabacita y córtala también en cubos. Incorpora primero la zanahoria al caldo y cocina durante 10 minutos. Añade después la calabacita y continúa la cocción de 8 a 10 minutos más, o hasta que ambas verduras estén tiernas y el arroz de las albóndigas esté suave. Verifica nuevamente que la carne esté completamente cocida y apaga la estufa.",
+"estufa": "encendida",
+"orden": 4,
+"temporizador_minutos": 10,
+"temporizador_nombre": "Cocer la zanahoria",
+"nota_seguridad": "Al terminar los 10 minutos, agrega la calabacita y continúa la cocción durante 8 a 10 minutos más. Si las verduras siguen firmes, continúa cocinando y revísalas cada pocos minutos.",
+"imagen": "/recetas/albondigas-res-caldo-paso4.jpeg"
+},
+{
+"texto": "Deja reposar la preparación durante 2 minutos y sirve cuatro porciones con suficiente caldo, albóndigas y verduras. Si es necesario, corta las albóndigas y las verduras en trozos pequeños para facilitar la masticación.",
+"estufa": "apagar",
+"orden": 5,
+"temporizador_minutos": 2,
+"temporizador_nombre": "Reposar antes de servir",
+"nota_seguridad": "Comprueba la temperatura antes de servir para evitar quemaduras. Adapta la consistencia y el tamaño de los trozos a las necesidades de cada persona.",
+"imagen": "/recetas/albondigas-res-caldo-paso5.jpeg"
+}
+]
+}

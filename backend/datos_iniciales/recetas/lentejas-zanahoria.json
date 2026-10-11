@@ -1,0 +1,82 @@
+{
+  "_comentario": "Receta de elaboración propia. Las lentejas deben quedar completamente tiernas antes de servir.",
+  "slug": "lentejas-guisadas-zanahoria",
+  "titulo": "Lentejas guisadas con zanahoria",
+  "descripcion": "Guiso de lentejas con zanahoria y jitomate, fuente vegetal de proteína y fibra.",
+  "porciones": 4,
+  "ingredientes": [
+    {
+      "nombre": "Lentejas secas",
+      "cantidad": "250 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "200 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "50 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "1 diente",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "1.5 litros",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Revisa las lentejas, retira piedritas o residuos y enjuágalas con agua. Pela y corta la zanahoria en cubos pequeños.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Revisa cuidadosamente las lentejas secas antes de cocinarlas.",
+      "imagen": "/recetas/lentejas-paso1.jpeg"
+    },
+    {
+      "texto": "Licúa el jitomate con la cebolla y el ajo. Calienta el aceite en una olla y cocina la salsa hasta que cambie de color.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita las salpicaduras de la salsa.",
+      "imagen": "/recetas/lentejas-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega las lentejas, el agua y la zanahoria. Cocina a fuego medio-bajo hasta que las lentejas estén completamente suaves; añade agua caliente si hace falta.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Vigila la olla y remueve de vez en cuando para evitar que las lentejas se peguen.",
+      "imagen": "/recetas/lentejas-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa. Si necesitas una consistencia más suave, aplasta una parte de las lentejas con un tenedor y mezcla antes de servir.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba la temperatura antes de servir.",
+      "imagen": "/recetas/lentejas-paso4.jpeg"
+    }
+  ]
+}

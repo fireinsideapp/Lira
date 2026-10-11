@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { registerSW } from "virtual:pwa-register";
 import App from "./App";
+import { AvisoProvider } from "./compartido/ui/Aviso";
 import "./compartido/estilos/tema.css";
 
 registerSW({ immediate: true });
@@ -11,7 +12,9 @@ registerSW({ immediate: true });
 createRoot(document.getElementById("raiz")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AvisoProvider>
+        <App />
+      </AvisoProvider>
     </BrowserRouter>
   </StrictMode>
 );

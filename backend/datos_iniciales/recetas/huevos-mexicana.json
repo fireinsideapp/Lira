@@ -1,0 +1,103 @@
+{
+  "slug": "huevos-a-la-mexicana",
+  "titulo": "Huevos a la mexicana",
+  "descripcion": "Huevos revueltos con jitomate, cebolla y chile. Un desayuno rápido y fácil.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Huevos",
+      "cantidad": "4",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Jitomate picado",
+      "cantidad": "1 mediano",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Cebolla picada",
+      "cantidad": "1/4 de pieza",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Chile serrano picado (opcional)",
+      "cantidad": "1",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Aceite",
+      "cantidad": "1 cucharada",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Sal",
+      "cantidad": "una pizca",
+      "grupo": "Base"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Reúne todos los ingredientes sobre la mesa. Pica el jitomate, la cebolla y el chile en cuadritos pequeños.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Ten cuidado al usar el cuchillo.",
+      "imagen": "/recetas/mexicana-paso1.jpeg"
+    },
+    {
+      "texto": "Pon una sartén en la estufa y calienta el aceite a fuego medio.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Ten cuidado con el aceite caliente.",
+      "imagen": "/recetas/mexicana-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega la cebolla y el chile. Cocina 2 minutos moviendo con una cuchara. Te aviso a los 2 minutos.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 2,
+      "temporizador_nombre": "Cebolla y chile",
+      "nota_seguridad": null,
+      "imagen": "/recetas/mexicana-paso3.jpeg"
+    },
+    {
+      "texto": "Agrega el jitomate y la sal. Cocina 3 minutos, hasta que se suavice. Te aviso a los 3 minutos.",
+      "estufa": "encendida",
+      "orden": 4,
+      "temporizador_minutos": 3,
+      "temporizador_nombre": "Jitomate en la sartén",
+      "nota_seguridad": "Ten cuidado con las salpicaduras.",
+      "imagen": "/recetas/mexicana-paso4.jpeg"
+    },
+    {
+      "texto": "Bate los huevos en un plato y agrégalos a la sartén. Mueve despacio hasta que estén cocidos. Te aviso a los 2 minutos para que los revises.",
+      "estufa": "encendida",
+      "orden": 5,
+      "temporizador_minutos": 2,
+      "temporizador_nombre": "Huevos en la sartén",
+      "nota_seguridad": null,
+      "imagen": "/recetas/mexicana-paso5.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa.",
+      "estufa": "apagar",
+      "orden": 6,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/mexicana-paso6.jpeg"
+    },
+    {
+      "texto": "Sirve los huevos calientes. Puedes acompañarlos con tortillas o frijoles. ¡Buen provecho!",
+      "estufa": null,
+      "orden": 7,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/mexicana-paso7.jpeg"
+    }
+  ]
+}

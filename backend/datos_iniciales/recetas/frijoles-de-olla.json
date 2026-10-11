@@ -1,0 +1,103 @@
+{
+  "slug": "frijoles-de-la-olla",
+  "titulo": "Frijoles de la olla",
+  "descripcion": "Frijoles cocidos lentamente con cebolla y ajo, en su caldo. Ideales para acompañar cualquier comida.",
+  "porciones": 6,
+  "ingredientes": [
+    {
+      "nombre": "Frijol seco (pinto o bayo)",
+      "cantidad": "2 tazas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "8 tazas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "1/4 de pieza",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "2 dientes",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Sal",
+      "cantidad": "1 cucharadita",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Epazote (opcional)",
+      "cantidad": "1 ramita",
+      "grupo": "Base"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Pon los frijoles en un plato y quita las piedritas o frijoles feos. Lávalos con agua limpia y escúrrelos.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/frijoles-paso1.jpeg"
+    },
+    {
+      "texto": "Pon en una olla los frijoles, el agua, la cebolla y el ajo. Enciende la estufa y espera a que hierva.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Cuida la olla mientras hierve.",
+      "imagen": "/recetas/frijoles-paso2.jpeg"
+    },
+    {
+      "texto": "Cuando hierva, baja el fuego, tapa la olla y deja cocinar 1 hora. Te aviso a la hora para que revises el agua.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 60,
+      "temporizador_nombre": "Frijoles cocinando",
+      "nota_seguridad": "Si baja mucho el agua, agrega agua caliente, nunca fría.",
+      "imagen": "/recetas/frijoles-paso3.jpeg"
+    },
+    {
+      "texto": "Prueba un frijol. Si todavía está duro, cocina 30 minutos más. Te aviso a los 30 minutos.",
+      "estufa": "encendida",
+      "orden": 4,
+      "temporizador_minutos": 30,
+      "temporizador_nombre": "Frijoles, segunda revisión",
+      "nota_seguridad": "Ten cuidado con el vapor al destapar la olla.",
+      "imagen": "/recetas/frijoles-paso4.jpeg"
+    },
+    {
+      "texto": "Cuando estén suaves, agrega la sal y el epazote. Cocina 10 minutos más. Te aviso a los 10 minutos.",
+      "estufa": "encendida",
+      "orden": 5,
+      "temporizador_minutos": 10,
+      "temporizador_nombre": "Frijoles con sal",
+      "nota_seguridad": null,
+      "imagen": "/recetas/frijoles-paso5.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa.",
+      "estufa": "apagar",
+      "orden": 6,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/frijoles-paso6.jpeg"
+    },
+    {
+      "texto": "Deja reposar unos minutos y sirve con su caldo. Usa un trapo grueso para mover la olla. ¡Buen provecho!",
+      "estufa": null,
+      "orden": 7,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "La olla y el caldo están muy calientes.",
+      "imagen": "/recetas/frijoles-paso7.jpeg"
+    }
+  ]
+}

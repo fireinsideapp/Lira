@@ -1,28 +1,32 @@
 // frontend/src/funciones/recetas/ListaRecetasPagina.tsx
-// Ya no lee automaticamente todas las recetas. En vez de eso, pregunta que quiere cocinar
-// y busca por voz; si no la tenemos, lo dice con honestidad. Las tarjetas siguen como respaldo tactil.
-import { ChevronRight, Mic } from "lucide-react";
-import { useEffect, useRef } from "react";
+// Lyra pregunta qué quiere cocinar y escucha sola (sin tocar nada). Las tarjetas siguen como respaldo táctil.
+import { ChevronRight, Ear, EarOff } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PantallaCarga } from "../../compartido/ui/PantallaCarga";
-import { detener, hablar, useVoz } from "../../voz";
-import { escucharNavegador, hayReconocimientoNavegador } from "../../voz/transcripcion/reconocimientoNavegador";
+import { detener, hablar } from "../../voz";
+import { hayReconocimientoNavegador } from "../../voz/transcripcion/reconocimientoNavegador";
+import { useEscuchaAutomatica } from "../cocina/useEscuchaAutomatica";
 import { useRecetas } from "./api";
 import { buscarRecetas, elegirEntre } from "./buscarReceta";
+import type { RecetaResumen } from "./tipos";
 
 export default function ListaRecetasPagina() {
   const { datos: recetas, error, reintentar } = useRecetas();
   const navigate = useNavigate();
-  const { estado, setEstado } = useVoz();
+  const [escuchaAuto, setEscuchaAuto] = useState(true); // el usuario puede pausarla con el botón
 
-  // yaNavegoRef evita que un segundo toque (o un resultado de voz tardio) navegue dos veces.
-  // activoRef se apaga al desmontar, para ignorar resultados de voz que lleguen despues de cambiar de pantalla.
+  // yaNavegoRef evita que un segundo toque (o un resultado de voz tardío) navegue dos veces.
+  // activoRef se apaga al desmontar, para ignorar resultados de voz que lleguen después de cambiar de pantalla.
+  // opcionesRef guarda las recetas entre las que Lyra pidió elegir ("¿Cuál te gustaría?").
   const yaNavegoRef = useRef(false);
   const activoRef = useRef(true);
+  const opcionesRef = useRef<RecetaResumen[] | null>(null);
 
   useEffect(() => {
     activoRef.current = true;
     yaNavegoRef.current = false;
+    opcionesRef.current = null;
     if (recetas && recetas.length > 0) {
       hablar("¿Qué te gustaría cocinar hoy?");
     }
@@ -39,55 +43,62 @@ export default function ListaRecetasPagina() {
     navigate(`/recetas/${slug}`);
   };
 
-  const buscarPorVoz = async () => {
-  if (!recetas || !hayReconocimientoNavegador()) {
-    hablar("Por ahora, toca una receta de la lista.");
-    return;
-  }
-  detener();
-  setEstado("escuchando");
-  try {
-    const texto = await escucharNavegador();
-    if (!activoRef.current) return;
+  // Lo que el usuario dice se procesa aquí; después Lyra vuelve a escuchar sola.
+  const procesarVoz = async (texto: string) => {
+    if (!recetas || !activoRef.current) return;
+
+    // Si Lyra acaba de preguntar "¿Cuál te gustaría?", esta respuesta elige entre las opciones.
+    if (opcionesRef.current) {
+      const opciones = opcionesRef.current;
+      opcionesRef.current = null;
+      const elegida = elegirEntre(texto, opciones);
+      if (elegida) {
+        await hablar(`Vamos a preparar ${elegida.titulo}.`);
+        if (activoRef.current) irA(elegida.slug);
+      } else {
+        await hablar("No logré identificar cuál quieres. Dime el nombre de la receta, o toca una de la lista.");
+      }
+      return;
+    }
 
     const encontradas = buscarRecetas(texto, recetas);
 
     if (encontradas.length === 0) {
-      await hablar("Por el momento no contamos con esa receta. Puedes elegir una de la lista.");
+      await hablar("Por el momento no contamos con esa receta. Puedes decir otra, o elegir una de la lista.");
       return;
     }
 
     if (encontradas.length === 1) {
       const receta = encontradas[0];
       await hablar(`Tenemos ${receta.titulo}. Vamos a prepararla.`);
-      if (!activoRef.current) return;
-      irA(receta.slug);
+      if (activoRef.current) irA(receta.slug);
       return;
     }
 
-    // Varias coincidencias: las lee y pregunta cual quiere.
+    // Varias coincidencias: las lee y pregunta cuál quiere. La escucha automática recoge la respuesta.
+    opcionesRef.current = encontradas;
     const nombres = encontradas.map((r) => r.titulo).join(", ");
     await hablar(`Tenemos estas opciones: ${nombres}. ¿Cuál te gustaría?`);
-    if (!activoRef.current) return;
+  };
 
-    setEstado("escuchando");
-    const segundaRespuesta = await escucharNavegador();
-    if (!activoRef.current) return;
+  const hayMicrofono = hayReconocimientoNavegador();
 
-    const elegida = elegirEntre(segundaRespuesta, encontradas);
-    if (elegida) {
-      await hablar(`Vamos a preparar ${elegida.titulo}.`);
-      if (!activoRef.current) return;
-      irA(elegida.slug);
+  useEscuchaAutomatica({
+    activa: escuchaAuto && !!recetas && hayMicrofono,
+    procesarTexto: procesarVoz,
+    alTranscribir: () => {},
+    alDetenerse: () => setEscuchaAuto(false),
+  });
+
+  const alternarEscucha = () => {
+    if (escuchaAuto) {
+      setEscuchaAuto(false);
+      hablar("Listo, ya no te escucho solo. Puedes tocar una receta de la lista.");
     } else {
-      await hablar("No logré identificar cuál quieres. Puedes tocar una de la lista.");
+      setEscuchaAuto(true);
+      hablar("Listo, vuelvo a escucharte.");
     }
-  } catch {
-    if (activoRef.current) hablar("No te escuché bien, intenta de nuevo.");
-  } finally {
-    if (activoRef.current) setEstado("espera");
-  }
-};
+  };
 
   if (!recetas) return <PantallaCarga error={error} alReintentar={reintentar} />;
 
@@ -97,15 +108,26 @@ export default function ListaRecetasPagina() {
         ¿Qué vamos a cocinar hoy?
       </h1>
 
-      <button
-        onClick={buscarPorVoz}
-        className={`flex items-center justify-center gap-3 rounded-2xl py-5 text-2xl font-extrabold text-white shadow-md active:scale-95 ${
-          estado === "escuchando" ? "animate-pulse bg-red-600" : "bg-blue-600"
-        }`}
-      >
-        <Mic className="h-8 w-8" aria-hidden />
-        {estado === "escuchando" ? "Te escucho…" : "Decir qué quiero cocinar"}
-      </button>
+      {hayMicrofono && (
+        <button
+          onClick={alternarEscucha}
+          className={`flex items-center justify-center gap-3 rounded-2xl border-4 p-4 text-xl font-extrabold active:scale-95 ${
+            escuchaAuto
+              ? "border-[#8FB9A1] bg-[#8FB9A1]/20 text-slate-900"
+              : "border-slate-300 bg-slate-100 text-slate-700"
+          }`}
+        >
+          {escuchaAuto ? (
+            <>
+              <Ear className="h-7 w-7" aria-hidden /> Te escucho solo · Toca para pausar
+            </>
+          ) : (
+            <>
+              <EarOff className="h-7 w-7" aria-hidden /> Escucha pausada · Toca para activar
+            </>
+          )}
+        </button>
+      )}
 
       <div className="flex w-full flex-col gap-4">
         {recetas.map((r) => (

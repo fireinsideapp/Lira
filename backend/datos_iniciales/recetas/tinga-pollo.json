@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. La cocción completa del pollo es indispensable.",
+  "slug": "tinga-suave-pollo",
+  "titulo": "Tinga suave de pollo",
+  "descripcion": "Pollo deshebrado con jitomate y cebolla, preparado con poco picante y textura jugosa.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Pechuga de pollo sin hueso",
+      "cantidad": "450 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "300 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "1 diente",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "700 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Coloca el pollo en una olla con el agua y cocina hasta que alcance 74 °C en el centro. Retíralo y deshébralo finamente cuando se pueda manipular con seguridad.",
+      "estufa": "encendida",
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita lavar el pollo crudo y utiliza utensilios limpios para deshebrarlo.",
+      "imagen": "/recetas/tinga-pollo-paso1.jpeg"
+    },
+    {
+      "texto": "Licúa el jitomate con el ajo. Corta la cebolla en tiras delgadas y cocínala en una sartén con el aceite hasta que esté suave.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Mueve la cebolla con una cuchara para evitar que se queme.",
+      "imagen": "/recetas/tinga-pollo-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega el jitomate licuado y cocina hasta que la salsa se suavice. Incorpora el pollo y un poco del caldo de cocción; mezcla y cocina hasta que todo esté bien caliente.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita salpicaduras de salsa caliente.",
+      "imagen": "/recetas/tinga-pollo-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve la tinga en un plato o sobre tortillas suaves. Corta las porciones para facilitar su consumo.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Sirve a una temperatura cómoda.",
+      "imagen": "/recetas/tinga-pollo-paso4.jpeg"
+    }
+  ]
+}

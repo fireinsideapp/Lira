@@ -1,0 +1,82 @@
+{
+  "_comentario": "Receta de elaboración propia. Se recomienda comprobar que las verduras estén tiernas antes de servir.",
+  "slug": "calabacitas-elote-queso",
+  "titulo": "Calabacitas con elote y queso",
+  "descripcion": "Guiso casero de calabacita, elote y jitomate con queso fresco, de sabor suave.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Calabacitas",
+      "cantidad": "300 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Granos de elote cocidos",
+      "cantidad": "100 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "40 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Queso fresco",
+      "cantidad": "60 g",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "100 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava las calabacitas y el jitomate. Pica la cebolla, corta las calabacitas en cubos pequeños y pica el jitomate.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Corta las verduras sobre una tabla estable.",
+      "imagen": "/recetas/calabacitas-elote-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y cocina la cebolla hasta que se vea transparente. Agrega el jitomate y mueve hasta que comience a deshacerse.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": 5,
+      "temporizador_nombre": "Revisar la cebolla y el jitomate",
+      "nota_seguridad": "Evita acercar el rostro a las salpicaduras.",
+      "imagen": "/recetas/calabacitas-elote-paso2.jpeg"
+    },
+    {
+      "texto": "Añade las calabacitas, el elote y el agua. Tapa parcialmente y cocina a fuego bajo hasta que las calabacitas estén tiernas al pincharlas con un tenedor.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 10,
+      "temporizador_nombre": "Revisar las calabacitas",
+      "nota_seguridad": "Revisa el nivel de líquido y agrega un poco de agua si hace falta.",
+      "imagen": "/recetas/calabacitas-elote-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve las calabacitas con el queso fresco desmoronado por encima.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/calabacitas-elote-paso4.jpeg"
+    }
+  ]
+}

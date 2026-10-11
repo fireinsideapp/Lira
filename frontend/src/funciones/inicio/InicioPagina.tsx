@@ -1,4 +1,3 @@
-
 import { HeartHandshake, Mic, Volume2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +8,19 @@ import { escucharNavegador, hayReconocimientoNavegador } from "../../voz/transcr
 import { guardarNombre, obtenerPerfil } from "../perfil/api";
 
 type Estado = "cargando" | "preguntando" | "escuchando" | "confirmando" | "listo";
+
+// Convierte el error del reconocimiento en un mensaje claro y hablado.
+function mensajeDeError(e: unknown): string {
+  const err = e as { error?: string; message?: string } | undefined;
+  const codigo = String(err?.error ?? err?.message ?? e ?? "");
+  if (/not-allowed|service-not-allowed|permission/i.test(codigo)) {
+    return "No tengo permiso para usar el micrófono, pero no hay problema, podemos seguir. Puedes activarlo en la configuración del navegador.";
+  }
+  if (/network/i.test(codigo)) {
+    return "No pude escucharte porque falla el internet, pero no hay problema, podemos seguir.";
+  }
+  return "No te escuché bien, pero no hay problema, podemos seguir.";
+}
 
 export default function InicioPagina() {
   const navigate = useNavigate();
@@ -33,26 +45,42 @@ export default function InicioPagina() {
     await hablar("Hola, soy Lyra. ¿Cómo te llamas?");
     if (!hayReconocimientoNavegador()) {
       // Sin reconocimiento de voz disponible, seguimos sin nombre; no bloquea el uso de la app.
+      await hablar("Tu navegador no permite usar el micrófono, pero puedes ver las recetas con el botón.");
       setEstado("listo");
       return;
     }
+
     setEstado("escuchando");
+    let texto = "";
     try {
-      const texto = await escucharNavegador();
-      const detectado = extraerNombre(texto);
-      if (detectado) {
-        setEstado("confirmando");
-        await guardarNombre(detectado);
-        setNombre(detectado);
-        await hablar(`Mucho gusto, ${detectado}. ¿Qué cocinamos hoy?`);
-      } else {
-        await hablar("No logré entender tu nombre, pero no hay problema, podemos seguir.");
-      }
-    } catch {
-      await hablar("No te escuché bien, pero no hay problema, podemos seguir.");
-    } finally {
+      texto = await escucharNavegador();
+    } catch (e) {
+      console.error("Error de reconocimiento:", e);
       setEstado("listo");
+      await hablar(mensajeDeError(e));
+      return;
     }
+
+    const detectado = extraerNombre(texto);
+    if (!detectado) {
+      setEstado("listo");
+      await hablar("No logré entender tu nombre, pero no hay problema, podemos seguir.");
+      return;
+    }
+
+    setEstado("confirmando");
+    try {
+      await guardarNombre(detectado);
+    } catch {
+      // Falló guardar en el servidor: igual usamos el nombre en esta sesión.
+      setNombre(detectado);
+      setEstado("listo");
+      await hablar(`Mucho gusto, ${detectado}. No pude guardar tu nombre ahora, pero podemos seguir.`);
+      return;
+    }
+    setNombre(detectado);
+    setEstado("listo");
+    await hablar(`Mucho gusto, ${detectado}. ¿Qué cocinamos hoy?`);
   };
 
   return (

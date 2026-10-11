@@ -1,0 +1,72 @@
+{
+  "_comentario": "Receta de elaboración propia. Los tiempos de cocción se determinan por las señales de cocción descritas; no se asignan temporizadores.",
+  "slug": "hotcakes-avena-platano",
+  "titulo": "Hotcakes de avena y plátano",
+  "descripcion": "Hotcakes caseros suaves elaborados con avena, plátano y leche, ideales para un desayuno sencillo.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Avena molida",
+      "cantidad": "100 g",
+      "grupo": "Masa"
+    },
+    {
+      "nombre": "Plátano maduro",
+      "cantidad": "120 g",
+      "grupo": "Masa"
+    },
+    {
+      "nombre": "Leche",
+      "cantidad": "120 ml",
+      "grupo": "Masa"
+    },
+    {
+      "nombre": "Polvo para hornear",
+      "cantidad": "4 g",
+      "grupo": "Masa"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Pela el plátano y aplástalo con un tenedor hasta obtener un puré sin trozos grandes.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/hotcakes-avena-paso1.jpeg"
+    },
+    {
+      "texto": "Mezcla el puré con la avena molida, la leche y el polvo para hornear hasta obtener una masa espesa y uniforme.",
+      "estufa": null,
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/hotcakes-avena-paso2.jpeg"
+    },
+    {
+      "texto": "Calienta una sartén antiadherente a fuego bajo y úntala con el aceite. Vierte porciones pequeñas de masa y cocina hasta que los bordes se vean firmes; voltea con una espátula y cocina el otro lado hasta que el centro esté cocido.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita el fuego alto para que los hotcakes no se quemen por fuera mientras quedan crudos por dentro.",
+      "imagen": "/recetas/hotcakes-avena-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve los hotcakes cuando estén tibios. Córtalos en trozos pequeños si es necesario.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Verifica que no estén demasiado calientes.",
+      "imagen": "/recetas/hotcakes-avena-paso4.jpeg"
+    }
+  ]
+}

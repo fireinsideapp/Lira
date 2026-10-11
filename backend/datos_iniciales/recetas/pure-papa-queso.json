@@ -1,0 +1,67 @@
+{
+  "_comentario": "Receta de elaboración propia. La consistencia final puede ajustarse con leche para obtener un puré suave.",
+  "slug": "pure-papa-queso",
+  "titulo": "Puré de papa con queso",
+  "descripcion": "Puré cremoso de papa con leche y queso fresco, ideal como guarnición.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Papa",
+      "cantidad": "500 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Leche",
+      "cantidad": "120 ml",
+      "grupo": "Líquidos"
+    },
+    {
+      "nombre": "Queso fresco",
+      "cantidad": "70 g",
+      "grupo": "Complemento"
+    },
+    {
+      "nombre": "Mantequilla",
+      "cantidad": "10 g",
+      "grupo": "Complemento"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava, pela y corta las papas en trozos de tamaño similar.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Ten cuidado al pelar las papas.",
+      "imagen": "/recetas/pure-papa-paso1.jpeg"
+    },
+    {
+      "texto": "Coloca las papas en una olla, cúbrelas con agua y cocina hasta que se atraviesen fácilmente con un tenedor.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Vigila el agua hirviendo.",
+      "imagen": "/recetas/pure-papa-paso2.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y escurre las papas. Machácalas con un prensapapas o tenedor hasta que no queden trozos duros.",
+      "estufa": "apagar",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Sujeta la olla con cuidado para evitar quemaduras.",
+      "imagen": "/recetas/pure-papa-paso3.jpeg"
+    },
+    {
+      "texto": "Agrega la mantequilla, la leche y el queso desmoronado. Mezcla hasta obtener un puré uniforme y sirve tibio.",
+      "estufa": null,
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Si necesitas calentarlo, hazlo a fuego bajo y moviendo constantemente.",
+      "imagen": "/recetas/pure-papa-paso4.jpeg"
+    }
+  ]
+}

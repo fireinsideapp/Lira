@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. Retirar las semillas y venas del chile poblano para moderar el picor.",
+  "slug": "pollo-rajas-poblano-elote",
+  "titulo": "Pollo con rajas de poblano y elote",
+  "descripcion": "Pollo en tiras cocido con chile poblano, elote y cebolla en un guiso suave.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Pechuga de pollo sin hueso",
+      "cantidad": "450 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Chile poblano",
+      "cantidad": "1 pieza de 150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Granos de elote",
+      "cantidad": "120 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "80 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Leche",
+      "cantidad": "100 ml",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Cocina el pollo en agua hasta que alcance 74 °C en el centro. Retíralo y córtalo en tiras pequeñas. Asa el chile poblano, colócalo en un recipiente tapado para facilitar retirar la piel, pélalo y quita semillas y venas.",
+      "estufa": "encendida",
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Usa pinzas para manipular el chile caliente y lávate las manos después de limpiarlo.",
+      "imagen": "/recetas/pollo-rajas-paso1.jpeg"
+    },
+    {
+      "texto": "Corta el poblano en tiras delgadas y pica la cebolla. Calienta el aceite en una sartén y cocina la cebolla hasta que esté suave.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita salpicaduras de aceite caliente.",
+      "imagen": "/recetas/pollo-rajas-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega las rajas y los granos de elote. Incorpora la leche y cocina a fuego bajo hasta que el elote esté tierno y la salsa se caliente.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Remueve continuamente para evitar que la leche se derrame.",
+      "imagen": "/recetas/pollo-rajas-paso3.jpeg"
+    },
+    {
+      "texto": "Añade el pollo y mezcla hasta que todo esté bien caliente. Apaga la estufa y sirve con tortillas suaves.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba que las rajas y los granos de elote estén tiernos.",
+      "imagen": "/recetas/pollo-rajas-paso4.jpeg"
+    }
+  ]
+}

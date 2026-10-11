@@ -1,0 +1,72 @@
+{
+  "_comentario": "Receta de elaboración propia. Las señales visuales y de textura indican cuándo revisar la cocción.",
+  "slug": "quesadillas-champinones",
+  "titulo": "Quesadillas de champiñones",
+  "descripcion": "Quesadillas de maíz rellenas de champiñones suaves y queso derretido.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Tortillas de maíz",
+      "cantidad": "4 piezas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Champiñones frescos",
+      "cantidad": "200 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Queso Oaxaca",
+      "cantidad": "80 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Cebolla picada",
+      "cantidad": "30 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Limpia los champiñones, retira la parte final del tallo y córtalos en trozos pequeños. Pica la cebolla.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Lávate las manos después de manipular los champiñones crudos.",
+      "imagen": "/recetas/quesadillas-champinones-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una sartén. Agrega la cebolla y los champiñones; cocina, moviendo con frecuencia, hasta que estén tiernos y se haya evaporado el líquido que suelten.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Ten cuidado con el vapor que sale de la sartén.",
+      "imagen": "/recetas/quesadillas-champinones-paso2.jpeg"
+    },
+    {
+      "texto": "Rellena cada tortilla con los champiñones y el queso. Dobla las tortillas y caliéntalas en la sartén a fuego bajo hasta que estén calientes y el queso se derrita.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Usa una espátula para voltear las quesadillas.",
+      "imagen": "/recetas/quesadillas-champinones-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa, deja entibiar las quesadillas y córtalas en porciones manejables antes de servir.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba la temperatura del relleno antes de comer.",
+      "imagen": "/recetas/quesadillas-champinones-paso4.jpeg"
+    }
+  ]
+}

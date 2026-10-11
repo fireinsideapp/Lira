@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. Los frijoles deben quedar bien molidos para obtener una salsa sin trozos duros.",
+  "slug": "enfrijoladas-queso",
+  "titulo": "Enfrijoladas con queso",
+  "descripcion": "Tortillas suaves bañadas en salsa de frijoles y rellenas de queso fresco.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Tortillas de maíz",
+      "cantidad": "6 piezas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Frijoles cocidos",
+      "cantidad": "300 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Caldo de frijoles o agua",
+      "cantidad": "200 ml",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Queso fresco",
+      "cantidad": "100 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Cebolla picada",
+      "cantidad": "30 g",
+      "grupo": "Para servir"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Licúa los frijoles con el caldo o el agua hasta obtener una salsa homogénea. Si es necesario, pásala por un colador para retirar restos de pieles.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Si los frijoles están calientes, deja que pierdan algo de calor antes de licuar.",
+      "imagen": "/recetas/enfrijoladas-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y agrega la salsa de frijoles. Cocina a fuego bajo, moviendo hasta que esté caliente y tenga una consistencia que cubra las tortillas.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": 5,
+      "temporizador_nombre": "Revisar la salsa de frijoles",
+      "nota_seguridad": "Mueve con frecuencia para evitar salpicaduras.",
+      "imagen": "/recetas/enfrijoladas-paso2.jpeg"
+    },
+    {
+      "texto": "Calienta las tortillas en un comal hasta que estén flexibles. Pasa cada tortilla por la salsa caliente, rellénala con queso desmoronado y dóblala con cuidado.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 3,
+      "temporizador_nombre": "Revisar las tortillas",
+      "nota_seguridad": "Utiliza pinzas de cocina si las tortillas están demasiado calientes para manipularlas.",
+      "imagen": "/recetas/enfrijoladas-paso3.jpeg"
+    },
+    {
+      "texto": "Sirve las enfrijoladas con un poco más de salsa y cebolla picada. Apaga la estufa y deja que se entibien antes de comer.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba que las tortillas estén suaves y no tengan partes endurecidas.",
+      "imagen": "/recetas/enfrijoladas-paso4.jpeg"
+    }
+  ]
+}

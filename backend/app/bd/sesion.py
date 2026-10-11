@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 from app.configuracion import config
 
-engine = create_async_engine(config.database_url_normalizada, connect_args={"ssl": False})
+engine = create_async_engine(config.database_url_normalizada)
 Sesion = async_sessionmaker(engine, expire_on_commit=False)
 
 

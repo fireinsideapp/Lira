@@ -1,0 +1,82 @@
+{
+  "_comentario": "Receta de elaboración propia. La carne molida debe cocinarse completamente.",
+  "slug": "picadillo-res-verduras",
+  "titulo": "Picadillo de res con verduras",
+  "descripcion": "Carne molida de res guisada con papa, zanahoria y jitomate hasta obtener una preparación jugosa.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Carne molida de res magra",
+      "cantidad": "400 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Papa",
+      "cantidad": "200 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "120 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "250 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "40 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "300 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Pela la papa y la zanahoria. Córtalas en cubos pequeños y pica la cebolla. Licúa el jitomate con un poco del agua.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/picadillo-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y cocina la cebolla. Agrega la carne molida y deshaz los grumos con una cuchara hasta que no queden partes crudas.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "No uses el mismo utensilio para probar la carne cruda y la cocida.",
+      "imagen": "/recetas/picadillo-paso2.jpeg"
+    },
+    {
+      "texto": "Añade la salsa, el agua, la papa y la zanahoria. Cocina a fuego bajo, moviendo de vez en cuando, hasta que las verduras estén tiernas y la carne alcance 71 °C.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita que el guiso se quede sin líquido o se pegue al fondo.",
+      "imagen": "/recetas/picadillo-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve el picadillo jugoso, procurando que los trozos de verdura sean pequeños y suaves.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba la temperatura antes de servir.",
+      "imagen": "/recetas/picadillo-paso4.jpeg"
+    }
+  ]
+}

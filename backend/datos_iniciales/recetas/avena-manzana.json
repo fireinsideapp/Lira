@@ -1,0 +1,72 @@
+{
+"_comentario": "Receta de elaboración propia. Los temporizadores son nulos cuando no se especifica un tiempo de revisión. Las imágenes son rutas sugeridas.",
+"slug": "avena-cremosa-manzana",
+"titulo": "Avena cremosa con manzana",
+"descripcion": "Desayuno caliente de avena con leche y manzana cocida, de consistencia cremosa y sabor suave.",
+"porciones": 2,
+"ingredientes": [
+{
+"nombre": "Avena en hojuelas",
+"cantidad": "80 g",
+"grupo": "Base"
+},
+{
+"nombre": "Leche",
+"cantidad": "400 ml",
+"grupo": "Líquidos"
+},
+{
+"nombre": "Manzana pelada y picada",
+"cantidad": "150 g",
+"grupo": "Fruta"
+},
+{
+"nombre": "Canela molida",
+"cantidad": "1 g",
+"grupo": "Saborizante"
+},
+{
+"nombre": "Agua",
+"cantidad": "100 ml",
+"grupo": "Líquidos"
+}
+],
+"pasos": [
+{
+"texto": "Lávate las manos. Lava la manzana, pélala, retira las semillas y córtala en cubos pequeños.",
+"estufa": null,
+"orden": 1,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": "Utiliza la tabla de cortar sobre una superficie estable.",
+"imagen": "/recetas/avena-manzana-paso1.jpeg"
+},
+{
+"texto": "Coloca el agua y la manzana en una olla. Cocina hasta que la manzana esté blanda al presionarla con un tenedor.",
+"estufa": "encendida",
+"orden": 2,
+"temporizador_minutos": 5,
+"temporizador_nombre": "Revisar la manzana",
+"nota_seguridad": "Mantén el mango de la olla hacia dentro de la estufa.",
+"imagen": "/recetas/avena-manzana-paso2.jpeg"
+},
+{
+"texto": "Agrega la avena, la leche y la canela. Cocina a fuego bajo, moviendo con una cuchara hasta que la avena esté cocida y cremosa.",
+"estufa": "encendida",
+"orden": 3,
+"temporizador_minutos": 5,
+"temporizador_nombre": "Revisar la consistencia de la avena",
+"nota_seguridad": "Evita que la leche hierva y se derrame.",
+"imagen": "/recetas/avena-manzana-paso3.jpeg"
+},
+{
+"texto": "Apaga la estufa, deja que la preparación se enfríe hasta una temperatura cómoda y sirve en dos tazones.",
+"estufa": "apagar",
+"orden": 4,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": "Comprueba la temperatura antes de servir.",
+"imagen": "/recetas/avena-manzana-paso4.jpeg"
+}
+]
+}

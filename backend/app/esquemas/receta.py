@@ -17,6 +17,7 @@ class Paso(BaseModel):
     temporizador_nombre: str | None = None
     nota_seguridad: str | None = None
     estufa: Literal["encendida", "apagar"] | None = None
+    imagen: str | None = None   # nombre del archivo en frontend/public/recetas (ej. "rojos-paso1.jpg")
 
 
 class RecetaResumen(BaseModel):

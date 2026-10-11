@@ -1,0 +1,82 @@
+{
+  "_comentario": "Receta de elaboración propia. El pollo debe alcanzar una cocción completa antes de deshebrarse.",
+  "slug": "pollo-deshebrado-salsa-verde",
+  "titulo": "Pollo deshebrado en salsa verde",
+  "descripcion": "Pollo cocido y deshebrado finamente, acompañado de salsa verde suave.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Pechuga de pollo sin hueso",
+      "cantidad": "450 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Tomatillos verdes",
+      "cantidad": "300 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "60 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "1 diente",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cilantro",
+      "cantidad": "10 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "800 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Coloca el pollo en una olla con el agua y una parte de la cebolla. Cocina hasta que el centro de la pechuga alcance 74 °C y la carne esté completamente cocida.",
+      "estufa": "encendida",
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita lavar el pollo crudo para no salpicar la cocina. Usa un termómetro de alimentos si está disponible.",
+      "imagen": "/recetas/pollo-salsa-verde-paso1.jpeg"
+    },
+    {
+      "texto": "Retira el pollo con pinzas limpias y deja que se enfríe lo suficiente para manipularlo. Deshébralo finamente con dos tenedores.",
+      "estufa": "apagar",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "No toques la carne con las manos mientras esté muy caliente.",
+      "imagen": "/recetas/pollo-salsa-verde-paso2.jpeg"
+    },
+    {
+      "texto": "Hierve los tomatillos en agua hasta que estén suaves. Escúrrelos y licúalos con el ajo, el resto de la cebolla y el cilantro.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Deja que los ingredientes pierdan algo de calor antes de licuarlos y evita llenar demasiado el vaso.",
+      "imagen": "/recetas/pollo-salsa-verde-paso3.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla, agrega la salsa y cocina hasta que hierva suavemente. Incorpora el pollo deshebrado y calienta hasta que todo esté bien caliente. Apaga la estufa y sirve.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba la temperatura antes de servir y evita dejar el pollo cocido a temperatura ambiente durante mucho tiempo.",
+      "imagen": "/recetas/pollo-salsa-verde-paso4.jpeg"
+    }
+  ]
+}

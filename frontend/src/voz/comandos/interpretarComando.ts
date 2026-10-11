@@ -21,18 +21,25 @@ function normalizar(texto: string): string {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "") // quita acentos (á -> a, é -> e, etc.)
     .replace(/[¿?¡!.,]/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
-function extraerMinutos(texto: string): number | null {
-  const digito = texto.match(/(\d+)\s*(minutos?|min)/);
-  if (digito) return parseInt(digito[1], 10);
+function extraerSegundos(texto: string): number | null {
+  const digitoSeg = texto.match(/(\d+)\s*(segundos?|seg)\b/);
+  if (digitoSeg) return parseInt(digitoSeg[1], 10);
 
-  if (/media\s*hora/.test(texto)) return 30;
-  if (/\bhora\b/.test(texto) && !/\bmedia\b/.test(texto)) return 60;
+  const digito = texto.match(/(\d+)\s*(minutos?|min)\b/);
+  if (digito) return parseInt(digito[1], 10) * 60;
 
-  const palabra = texto.match(/(\w+)\s*(minutos?|min)/);
-  if (palabra && NUMEROS[palabra[1]]) return NUMEROS[palabra[1]];
+  if (/media\s*hora/.test(texto)) return 30 * 60;
+  if (/\bhora\b/.test(texto) && !/\bmedia\b/.test(texto)) return 60 * 60;
+
+  const palabra = texto.match(/(\w+)\s*(minutos?|min)\b/);
+  if (palabra && NUMEROS[palabra[1]]) return NUMEROS[palabra[1]] * 60;
+
+  const palabraSeg = texto.match(/(\w+)\s*(segundos?|seg)\b/);
+  if (palabraSeg && NUMEROS[palabraSeg[1]]) return NUMEROS[palabraSeg[1]];
 
   return null;
 }
@@ -41,10 +48,12 @@ function extraerMinutos(texto: string): number | null {
 // Si falla algo nuevo en las pruebas, solo hay que agregar la frase aqui, sin tocar nada mas.
 const FRASES_SIGUIENTE = [
   "siguiente", "continua", "continuar", "sigue", "sigamos",
-  "ya termine", "ya acabe", "termine", "acabe", "listo", "ya esta", "ya quedo",
-  "ok siguiente", "vale siguiente", "ya", "adelante", "avanza", "avancemos",
-  "pasa al siguiente", "siguiente paso", "ok", "va", "andale",
+  "ya termine", "ya acabe", "termine", "acabe", "ya esta", "ya quedo",
+  "avanza", "avancemos", "pasa al siguiente", "siguiente paso",
 ];
+// Palabras muy cortas: solo cuentan si la frase completa es breve ("listo", "ok ya", "va").
+// Asi "¿ya puedo apagar?" o "esta listo el arroz?" no se confunden con "siguiente".
+const SIGUIENTE_CORTAS = ["ya", "ok", "va", "vale", "listo", "adelante", "andale"];
 const FRASES_ANTERIOR = [
   "anterior", "atras", "regresa", "regresar", "regresame", "vuelve", "volver",
   "paso anterior", "el paso de antes", "retrocede",
@@ -60,8 +69,13 @@ const FRASES_TEMPORIZADOR = [
   "necesito un temporizador", "quiero un temporizador", "timer de", "alarma de",
 ];
 
+// Frases que empiezan como pregunta o piden permiso: van directo a Lyra (Gemini).
+const ES_PREGUNTA =
+  /^(puedo|puede|podria|podemos|se puede|como|cuanto|cuanta|cuantos|cuantas|cuando|que|por que|porque|donde|cual|cuales|es|esta|hay|lleva|tiene|sirve)\b|\b(puedo|podria|se puede|le puedo|le pongo|le agrego)\b/;
+
+// Busca la frase como palabra(s) completa(s), no dentro de otra palabra.
 function contieneAlguna(texto: string, lista: string[]): boolean {
-  return lista.some((frase) => texto.includes(frase));
+  return lista.some((frase) => new RegExp(`\\b${frase}\\b`).test(texto));
 }
 
 export function interpretarComando(textoOriginal: string): Comando {
@@ -69,12 +83,21 @@ export function interpretarComando(textoOriginal: string): Comando {
   if (!texto) return { tipo: "desconocido" };
 
   if (contieneAlguna(texto, FRASES_TEMPORIZADOR) || /\btimer\b/.test(texto)) {
-    const minutos = extraerMinutos(texto);
-    if (minutos) return { tipo: "temporizador", segundos: minutos * 60 };
+    const segundos = extraerSegundos(texto);
+    if (segundos) return { tipo: "temporizador", segundos };
   }
+
+  // "repite", "que dijiste", etc. se revisan antes de la regla de preguntas.
+  if (contieneAlguna(texto, FRASES_REPETIR)) return { tipo: "repetir" };
+
+  // Una pregunta de cocina ("¿puedo usar tortillas de harina?") va a Lyra, no cambia de paso.
+  if (ES_PREGUNTA.test(texto)) return { tipo: "desconocido" };
+
   if (contieneAlguna(texto, FRASES_SIGUIENTE)) return { tipo: "siguiente" };
   if (contieneAlguna(texto, FRASES_ANTERIOR)) return { tipo: "anterior" };
-  if (contieneAlguna(texto, FRASES_REPETIR)) return { tipo: "repetir" };
+
+  const palabras = texto.split(" ").length;
+  if (palabras <= 3 && contieneAlguna(texto, SIGUIENTE_CORTAS)) return { tipo: "siguiente" };
 
   return { tipo: "desconocido" };
 }

@@ -1,0 +1,77 @@
+{
+"_comentario": "Receta de elaboración propia. Los tiempos de cocción son aproximados; verifica que las albóndigas de pollo alcancen 74 °C en el centro antes de servir.",
+"slug": "albondigas-pollo-caldillo",
+"titulo": "Albóndigas de pollo en caldillo de jitomate",
+"descripcion": "Albóndigas suaves de pollo molido con avena, cocidas en un caldillo casero de jitomate, sin necesidad de agregar mucha sal.",
+"porciones": 3,
+"ingredientes": [
+{
+"nombre": "Pollo molido",
+"cantidad": "400 g",
+"grupo": "Albóndigas"
+},
+{
+"nombre": "Avena molida",
+"cantidad": "30 g",
+"grupo": "Albóndigas"
+},
+{
+"nombre": "Jitomate",
+"cantidad": "300 g",
+"grupo": "Caldillo"
+},
+{
+"nombre": "Cebolla",
+"cantidad": "60 g",
+"grupo": "Caldillo"
+},
+{
+"nombre": "Ajo",
+"cantidad": "1 diente",
+"grupo": "Caldillo"
+},
+{
+"nombre": "Agua",
+"cantidad": "500 ml",
+"grupo": "Caldillo"
+}
+],
+"pasos": [
+{
+"texto": "Lávate las manos y coloca el pollo molido en un recipiente. Agrega la avena molida y mezcla hasta integrar. Forma albóndigas pequeñas de tamaño uniforme, aproximadamente de 3 a 4 cm de diámetro. Reserva en el refrigerador mientras preparas el caldillo si no las vas a cocinar inmediatamente.",
+"estufa": null,
+"orden": 1,
+"temporizador_segundos": null,
+"temporizador_nombre": null,
+"nota_seguridad": "Mantén el pollo crudo separado de los alimentos listos para comer. Lava las manos, los utensilios y las superficies que hayan estado en contacto con él.",
+"imagen": "/recetas/albondigas-pollo-paso1.jpeg"
+},
+{
+"texto": "Lava los jitomates y retira las partes dañadas. Licúalos con la cebolla, el ajo y aproximadamente 200 ml del agua hasta obtener una mezcla uniforme. Vierte el caldillo en una olla, agrega los 300 ml de agua restantes y calienta a fuego medio hasta que comience a hervir suavemente.",
+"estufa": "encendida",
+"orden": 2,
+"temporizador_segundos": 600,
+"temporizador_nombre": "Calentar el caldillo",
+"nota_seguridad": "El tiempo de calentamiento es aproximado y puede variar según la olla y la intensidad del fuego. Usa un recipiente estable y evita las salpicaduras de salsa caliente.",
+"imagen": "/recetas/albondigas-pollo-paso2.jpeg"
+},
+{
+"texto": "Reduce el fuego y agrega cuidadosamente las albóndigas al caldillo caliente, procurando que no queden amontonadas. Tapa parcialmente la olla y cocina a fuego bajo durante 20 minutos. Después, comprueba la cocción de una albóndiga en su centro. Si todavía no alcanza 74 °C, continúa cocinando y revisa nuevamente cada 5 minutos hasta que todas estén completamente cocidas.",
+"estufa": "encendida",
+"orden": 3,
+"temporizador_segundos": 1200,
+"temporizador_nombre": "Cocinar las albóndigas",
+"nota_seguridad": "El temporizador es orientativo: el tamaño de las albóndigas puede cambiar el tiempo necesario. El pollo debe alcanzar al menos 74 °C en el centro. Si no tienes termómetro, corta una albóndiga grande y verifica que no esté cruda en su interior; un cambio de color por sí solo no garantiza una cocción segura.",
+"imagen": "/recetas/albondigas-pollo-paso3.jpeg"
+},
+{
+"texto": "Cuando las albóndigas estén completamente cocidas, apaga la estufa y deja reposar la preparación durante 2 minutos. Sirve tres porciones con suficiente caldillo. Para facilitar la masticación, puedes partir las albóndigas en trozos pequeños y comprobar que estén tiernas.",
+"estufa": "apagar",
+"orden": 4,
+"temporizador_segundos": 120,
+"temporizador_nombre": "Reposar antes de servir",
+"nota_seguridad": "Comprueba que la comida no esté demasiado caliente antes de servir. Adapta el tamaño de los trozos a la capacidad de masticación y deglución de cada persona.",
+"imagen": "/recetas/albondigas-pollo-paso4.jpeg"
+}
+]
+}

@@ -1,0 +1,82 @@
+{
+  "_comentario": "Receta de elaboración propia. La salsa se prepara sin picante intenso y debe quedar homogénea.",
+  "slug": "pipian-verde-pollo",
+  "titulo": "Pipián verde con pollo",
+  "descripcion": "Pollo cocido con una salsa verde de pepitas de calabaza y tomatillo.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Pechuga de pollo sin hueso",
+      "cantidad": "450 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Tomatillos verdes",
+      "cantidad": "300 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Pepitas de calabaza sin cáscara",
+      "cantidad": "60 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "50 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cilantro",
+      "cantidad": "15 g",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "700 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Coloca el pollo en una olla con agua y cocina hasta que alcance 74 °C en el centro. Retíralo y córtalo en trozos pequeños.",
+      "estufa": "encendida",
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Usa utensilios limpios para manipular el pollo cocido.",
+      "imagen": "/recetas/pipian-pollo-paso1.jpeg"
+    },
+    {
+      "texto": "Hierve los tomatillos hasta que estén suaves. Tuesta las pepitas en una sartén seca a fuego bajo, moviéndolas continuamente para que no se quemen.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "No dejes las pepitas sin vigilancia porque pueden quemarse rápidamente.",
+      "imagen": "/recetas/pipian-pollo-paso2.jpeg"
+    },
+    {
+      "texto": "Licúa los tomatillos, las pepitas, la cebolla, el cilantro y parte del caldo hasta obtener una salsa homogénea. Calienta el aceite en una olla y vierte la salsa.",
+      "estufa": null,
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Si los ingredientes están calientes, licúa en pequeñas cantidades y libera el vapor de forma segura.",
+      "imagen": "/recetas/pipian-pollo-paso3.jpeg"
+    },
+    {
+      "texto": "Cocina la salsa a fuego bajo, agrega el pollo y un poco más de caldo si está demasiado espesa. Calienta completamente, apaga la estufa y sirve.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Remueve con frecuencia para evitar que la salsa espesa se pegue.",
+      "imagen": "/recetas/pipian-pollo-paso4.jpeg"
+    }
+  ]
+}

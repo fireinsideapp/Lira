@@ -1,5 +1,5 @@
 // frontend/src/funciones/cocina/CocinaPagina.tsx
-import { ArrowLeft, ChefHat, Volume2 } from "lucide-react";
+import { ArrowLeft, ChefHat, Ear, EarOff, Volume2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBloqueoPantalla } from "../../compartido/hooks/useBloqueoPantalla";
@@ -11,8 +11,16 @@ import type { Receta } from "../recetas/tipos";
 import { InsigniaTemporizador } from "../temporizadores/InsigniaTemporizador";
 import { AlertaEstufa } from "./componentes/AlertaEstufa";
 import { ControlesPaso } from "./componentes/ControlesPaso";
+import { useEscuchaAutomatica } from "./useEscuchaAutomatica";
 import { useSesionCocina } from "./useSesionCocina";
 import { VistaPaso } from "./VistaPaso";
+
+// Respuestas posibles cuando Lyra pregunta "¿Empezamos a cocinar?" en la introducción.
+const normalizar = (t: string) =>
+  t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[¿?¡!.,]/g, "").trim();
+const AFIRMATIVO = /\b(si|claro|empezar|empecemos|empieza|empezamos|comenzar|comencemos|comienza|vamos|dale|listo|ya|ok|vale|adelante|siguiente)\b/;
+const NEGATIVO = /^(no|espera|todavia no|aun no|ahorita no)\b/;
+const REPETIR = /\b(repite|repitelo|otra vez|de nuevo|que dijiste)\b/;
 
 export default function CocinaPagina() {
   const { slug = "" } = useParams();
@@ -26,6 +34,7 @@ function Cocina({ receta }: { receta: Receta }) {
   const sesion = useSesionCocina(receta);
   const { paso, iniciada, terminada } = sesion;
   const [ultimoEscuchado, setUltimoEscuchado] = useState("");
+  const [escuchaAuto, setEscuchaAuto] = useState(true); // el usuario puede pausarla con el botón
   const yaLeidaRef = useRef(false); // evita releer si React re-renderiza el mismo slug
 
   useBloqueoPantalla(iniciada && !terminada);
@@ -38,14 +47,46 @@ function Cocina({ receta }: { receta: Receta }) {
       .join(", ");
 
     const mensaje = ingredientesTexto
-      ? `Receta de ${receta.titulo}. ${receta.descripcion}. Los ingredientes necesarios son: ${ingredientesTexto}.`
-      : `Receta de ${receta.titulo}. ${receta.descripcion}.`;
+      ? `Receta de ${receta.titulo}. ${receta.descripcion}. Los ingredientes necesarios son: ${ingredientesTexto}. ¿Empezamos a cocinar?`
+      : `Receta de ${receta.titulo}. ${receta.descripcion}. ¿Empezamos a cocinar?`;
 
-    hablar(mensaje);
+    return hablar(mensaje);
+  };
+
+  // En la introducción, la voz sirve para decir "sí / empezar" o pedir que repita.
+  const procesarIntro = async (texto: string) => {
+    const t = normalizar(texto);
+    if (REPETIR.test(t)) return leerIntroduccion();
+    if (NEGATIVO.test(t)) return hablar("Está bien, avísame cuando estés listo y di empezar.");
+    if (t.split(" ").length <= 4 && AFIRMATIVO.test(t)) {
+      detener();
+      sesion.iniciar(); // el paso 1 lo lee useSesionCocina
+      return;
+    }
+    return hablar("Cuando estés listo, di empezar.");
+  };
+
+  const procesarVoz = (texto: string) => (iniciada ? sesion.procesarTexto(texto) : procesarIntro(texto));
+
+  // Escucha automática desde la introducción hasta el final de la receta.
+  useEscuchaAutomatica({
+    activa: escuchaAuto && !terminada,
+    procesarTexto: procesarVoz,
+    alTranscribir: setUltimoEscuchado,
+    alDetenerse: () => setEscuchaAuto(false),
+  });
+
+  const alternarEscucha = () => {
+    if (escuchaAuto) {
+      setEscuchaAuto(false);
+      hablar("Listo, ya no te escucho solo. Toca el micrófono cuando quieras hablarme.");
+    } else {
+      setEscuchaAuto(true);
+      hablar("Listo, vuelvo a escucharte.");
+    }
   };
 
   // Lectura automatica: solo una vez, solo mientras seguimos en la intro (!iniciada).
-  // No hay ningun onClick en el contenedor padre, asi que esto no interfiere con los pasos despues.
   useEffect(() => {
     if (!iniciada && !yaLeidaRef.current) {
       yaLeidaRef.current = true;
@@ -79,6 +120,10 @@ function Cocina({ receta }: { receta: Receta }) {
       </header>
 
       <main className="flex flex-1 flex-col gap-5 p-5">
+        {ultimoEscuchado && !terminada && (
+          <p className="rounded-2xl bg-slate-100 p-3 text-lg text-slate-600">Escuché: "{ultimoEscuchado}"</p>
+        )}
+
         {!iniciada && (
           <>
             <button
@@ -120,11 +165,6 @@ function Cocina({ receta }: { receta: Receta }) {
 
         {paso && (
           <>
-            {ultimoEscuchado && (
-              <p className="rounded-2xl bg-slate-100 p-3 text-lg text-slate-600">
-                Escuché: "{ultimoEscuchado}"
-              </p>
-            )}
             <VistaPaso paso={paso} total={sesion.total} />
             {paso.estufa && <AlertaEstufa modo={paso.estufa} />}
           </>
@@ -146,6 +186,27 @@ function Cocina({ receta }: { receta: Receta }) {
             alQuitar={() => sesion.quitarTemporizador(t.id)}
           />
         ))}
+
+        {!terminada && (
+          <button
+            onClick={alternarEscucha}
+            className={`flex items-center justify-center gap-3 rounded-2xl border-4 p-4 text-xl font-extrabold active:scale-95 ${
+              escuchaAuto
+                ? "border-[#8FB9A1] bg-[#8FB9A1]/20 text-slate-900"
+                : "border-slate-300 bg-slate-100 text-slate-700"
+            }`}
+          >
+            {escuchaAuto ? (
+              <>
+                <Ear className="h-7 w-7" aria-hidden /> Te escucho solo · Toca para pausar
+              </>
+            ) : (
+              <>
+                <EarOff className="h-7 w-7" aria-hidden /> Escucha pausada · Toca para activar
+              </>
+            )}
+          </button>
+        )}
 
         {terminada && <BotonGrande onClick={() => navigate("/recetas")}>Volver a las recetas</BotonGrande>}
       </main>

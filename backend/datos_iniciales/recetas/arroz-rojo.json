@@ -1,0 +1,122 @@
+{
+"slug": "arroz-rojo",
+"titulo": "Arroz rojo",
+"descripcion": "Arroz suelto cocido con salsa de jitomate. Un acompañamiento clásico de la comida mexicana.",
+"porciones": 4,
+"ingredientes": [
+{
+"nombre": "Arroz",
+"cantidad": "1 taza",
+"grupo": "Base"
+},
+{
+"nombre": "Aceite",
+"cantidad": "3 cucharadas",
+"grupo": "Base"
+},
+{
+"nombre": "Caldo o agua caliente",
+"cantidad": "2 tazas",
+"grupo": "Base"
+},
+{
+"nombre": "Sal",
+"cantidad": "1/2 cucharadita",
+"grupo": "Base"
+},
+{
+"nombre": "Jitomates",
+"cantidad": "2 medianos",
+"grupo": "Salsa"
+},
+{
+"nombre": "Cebolla",
+"cantidad": "1/4 de pieza",
+"grupo": "Salsa"
+},
+{
+"nombre": "Ajo",
+"cantidad": "1 diente",
+"grupo": "Salsa"
+},
+{
+"nombre": "Zanahoria y chícharos (opcional)",
+"cantidad": "",
+"grupo": "Para agregar"
+}
+],
+"pasos": [
+{
+"texto": "Lava el arroz con agua limpia y escúrrelo bien en un colador.",
+"estufa": null,
+"orden": 1,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": null,
+"imagen": "/recetas/arroz-paso1.jpeg"
+},
+{
+"texto": "Pon en la licuadora los jitomates, la cebolla, el ajo y media taza de agua. Licúa hasta que quede una salsa.",
+"estufa": null,
+"orden": 2,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": "Cierra bien la tapa de la licuadora y no metas la mano.",
+"imagen": "/recetas/arroz-paso2.jpeg"
+},
+{
+"texto": "Calienta el aceite en una olla y agrega el arroz. Fríelo moviendo hasta que se ponga ligeramente dorado. Te aviso a los 3 minutos.",
+"estufa": "encendida",
+"orden": 3,
+"temporizador_minutos": 3,
+"temporizador_nombre": "Arroz dorándose",
+"nota_seguridad": "Ten cuidado con el aceite caliente.",
+"imagen": "/recetas/arroz-paso3.jpeg"
+},
+{
+"texto": "Agrega la salsa licuada y la sal. Mezcla y cocina 2 minutos. Te aviso a los 2 minutos.",
+"estufa": "encendida",
+"orden": 4,
+"temporizador_minutos": 2,
+"temporizador_nombre": "Arroz con salsa",
+"nota_seguridad": "Ten cuidado con las salpicaduras.",
+"imagen": "/recetas/arroz-paso4.jpeg"
+},
+{
+"texto": "Agrega el caldo caliente. Cuando hierva, baja el fuego al mínimo y tapa la olla.",
+"estufa": "encendida",
+"orden": 5,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": null,
+"imagen": "/recetas/arroz-paso5.jpeg"
+},
+{
+"texto": "Deja cocinar tapado 15 minutos sin destapar. Te aviso a los 15 minutos.",
+"estufa": "encendida",
+"orden": 6,
+"temporizador_minutos": 15,
+"temporizador_nombre": "Arroz tapado",
+"nota_seguridad": null,
+"imagen": "/recetas/arroz-paso6.jpeg"
+},
+{
+"texto": "Apaga la estufa y deja reposar el arroz tapado 5 minutos. Te aviso a los 5 minutos.",
+"estufa": "apagar",
+"orden": 7,
+"temporizador_minutos": 5,
+"temporizador_nombre": "Reposo del arroz",
+"nota_seguridad": "Ten cuidado con el vapor al destapar.",
+"imagen": "/recetas/arroz-paso7.jpeg"
+},
+{
+"texto": "Esponja el arroz con un tenedor y sirve caliente. ¡Buen provecho!",
+"estufa": null,
+"orden": 8,
+"temporizador_minutos": null,
+"temporizador_nombre": null,
+"nota_seguridad": null,
+"imagen": "/recetas/arroz-paso8.jpeg"
+}
+]
+}

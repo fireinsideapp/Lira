@@ -1,0 +1,72 @@
+{
+  "_comentario": "Receta de elaboración propia. Cocinar completamente la masa y utilizar requesón elaborado con leche pasteurizada.",
+  "slug": "tlacoyos-requeson",
+  "titulo": "Tlacoyos de requesón",
+  "descripcion": "Tlacoyos de masa de maíz rellenos de requesón, cocinados al comal y servidos sin freír.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Masa de maíz nixtamalizado",
+      "cantidad": "450 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Requesón pasteurizado",
+      "cantidad": "180 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "60 ml",
+      "grupo": "Masa"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    },
+    {
+      "nombre": "Salsa de jitomate suave",
+      "cantidad": "150 g",
+      "grupo": "Para servir"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Coloca la masa en un recipiente y agrega el agua poco a poco hasta que esté suave y no se agriete al moldearla.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Lávate las manos antes de manipular la masa.",
+      "imagen": "/recetas/tlacoyos-requeson-paso1.jpeg"
+    },
+    {
+      "texto": "Divide la masa en seis porciones. Forma óvalos, coloca una porción de requesón en el centro, cierra la masa y aplana suavemente.",
+      "estufa": null,
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Evita rellenar demasiado los tlacoyos para que no se abran durante la cocción.",
+      "imagen": "/recetas/tlacoyos-requeson-paso2.jpeg"
+    },
+    {
+      "texto": "Calienta el comal a fuego medio-bajo y úntalo con una pequeña cantidad de aceite. Cocina los tlacoyos por ambos lados hasta que la masa esté completamente cocida.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "No toques el comal directamente y utiliza una espátula para voltear los tlacoyos.",
+      "imagen": "/recetas/tlacoyos-requeson-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve los tlacoyos con salsa suave. Deja que se entibien y córtalos en trozos manejables si es necesario.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba que no queden partes de masa cruda en el centro.",
+      "imagen": "/recetas/tlacoyos-requeson-paso4.jpeg"
+    }
+  ]
+}

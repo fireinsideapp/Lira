@@ -1,0 +1,104 @@
+{
+  "slug": "sopa-de-fideo",
+  "titulo": "Sopa de fideo",
+  "descripcion": "Sopa caliente de fideo dorado en caldo de jitomate. Fácil, rápida y reconfortante.",
+  "porciones": 4,
+  "ingredientes": [
+    {
+      "nombre": "Fideo delgado",
+      "cantidad": "200 gramos",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Aceite",
+      "cantidad": "2 cucharadas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Caldo o agua caliente",
+      "cantidad": "4 tazas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Sal",
+      "cantidad": "1/2 cucharadita",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Jitomates",
+      "cantidad": "3 medianos",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "1/4 de pieza",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Ajo",
+      "cantidad": "1 diente",
+      "grupo": "Salsa"
+    },
+    {
+      "nombre": "Queso fresco y limón (opcional)",
+      "cantidad": "",
+      "grupo": "Para servir"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Pon en la licuadora los jitomates, la cebolla, el ajo y media taza de agua. Licúa hasta que quede una salsa.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Cierra bien la tapa de la licuadora y no metas la mano.",
+      "imagen": "/recetas/fideo-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y agrega el fideo. Muévelo sin parar hasta que se ponga dorado. Te aviso a los 2 minutos para que lo revises.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": 2,
+      "temporizador_nombre": "Fideo dorándose",
+      "nota_seguridad": "El fideo se quema rápido. Ten cuidado con el aceite caliente.",
+      "imagen": "/recetas/fideo-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega la salsa licuada y la sal. Cocina 3 minutos moviendo. Te aviso a los 3 minutos.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 3,
+      "temporizador_nombre": "Fideo con salsa",
+      "nota_seguridad": "Ten cuidado con las salpicaduras.",
+      "imagen": "/recetas/fideo-paso3.jpeg"
+    },
+    {
+      "texto": "Agrega el caldo caliente. Cuando hierva, baja el fuego y cocina 7 minutos. Te aviso a los 7 minutos.",
+      "estufa": "encendida",
+      "orden": 4,
+      "temporizador_minutos": 7,
+      "temporizador_nombre": "Sopa de fideo",
+      "nota_seguridad": null,
+      "imagen": "/recetas/fideo-paso4.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa.",
+      "estufa": "apagar",
+      "orden": 5,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/fideo-paso5.jpeg"
+    },
+    {
+      "texto": "Sirve la sopa caliente. Si quieres, agrega queso fresco y unas gotas de limón. ¡Buen provecho!",
+      "estufa": null,
+      "orden": 6,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "La sopa está muy caliente. Espera un momento antes de comer.",
+      "imagen": "/recetas/fideo-paso6.jpeg"
+    }
+  ]
+}

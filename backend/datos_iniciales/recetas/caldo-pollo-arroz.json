@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. El pollo debe alcanzar una cocción completa antes de servir.",
+  "slug": "caldo-pollo-arroz-verduras",
+  "titulo": "Caldo de pollo con arroz y verduras",
+  "descripcion": "Caldo casero de pollo con arroz, zanahoria y calabacita cocidos hasta quedar suaves.",
+  "porciones": 4,
+  "ingredientes": [
+    {
+      "nombre": "Pechuga de pollo sin hueso",
+      "cantidad": "400 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Arroz blanco crudo",
+      "cantidad": "100 g",
+      "grupo": "Cereal"
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Calabacita",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "40 g",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "1.8 litros",
+      "grupo": "Caldo"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Coloca el pollo, la cebolla y el agua en una olla. Lleva a hervor suave y cocina hasta que el pollo alcance 74 °C en el centro.",
+      "estufa": "encendida",
+      "orden": 1,
+      "temporizador_minutos": 20,
+      "temporizador_nombre": "Revisar la cocción del pollo",
+      "nota_seguridad": "Retira con una cuchara la espuma que se forme, si lo deseas, sin acercar el rostro al vapor.",
+      "imagen": "/recetas/caldo-pollo-paso1.jpeg"
+    },
+    {
+      "texto": "Retira el pollo con utensilios limpios y deshébralo finamente. Enjuaga el arroz y pela y corta la zanahoria y la calabacita en cubos pequeños.",
+      "estufa": null,
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Deja enfriar el pollo lo suficiente para manipularlo con seguridad.",
+      "imagen": "/recetas/caldo-pollo-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega el arroz y la zanahoria al caldo. Cocina hasta que el arroz comience a ablandarse; incorpora la calabacita y continúa hasta que todo esté suave.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": 15,
+      "temporizador_nombre": "Revisar el arroz y las verduras",
+      "nota_seguridad": "Vigila el nivel del caldo y añade agua caliente si es necesario.",
+      "imagen": "/recetas/caldo-pollo-paso3.jpeg"
+    },
+    {
+      "texto": "Regresa el pollo deshebrado a la olla y calienta hasta que todo esté bien caliente. Apaga la estufa y sirve en un plato hondo.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": 5,
+      "temporizador_nombre": "Revisar que el caldo esté caliente",
+      "nota_seguridad": "Sirve el caldo tibio y comprueba que no haya trozos grandes de pollo o verduras.",
+      "imagen": "/recetas/caldo-pollo-paso4.jpeg"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "_comentario": "Receta de elaboración propia. Las imágenes son rutas sugeridas y los temporizadores quedan nulos al no establecerse tiempos de revisión.",
+  "slug": "molletes-frijoles-queso",
+  "titulo": "Molletes de frijoles y queso",
+  "descripcion": "Pan con frijoles machacados y queso derretido, preparado con una textura suave y fácil de cortar.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Bolillos pequeños",
+      "cantidad": "2 piezas",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Frijoles cocidos y escurridos",
+      "cantidad": "160 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Queso Oaxaca deshebrado",
+      "cantidad": "80 g",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "30 ml",
+      "grupo": "Relleno"
+    },
+    {
+      "nombre": "Jitomate picado",
+      "cantidad": "60 g",
+      "grupo": "Acompañamiento"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Corta los bolillos por la mitad a lo largo. Si la corteza es muy dura, retira parte de ella para facilitar la masticación.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Corta el pan sobre una tabla estable.",
+      "imagen": "/recetas/molletes-paso1.jpeg"
+    },
+    {
+      "texto": "Machaca los frijoles con el agua hasta obtener una pasta suave. Si están fríos, caliéntalos en una olla, moviendo hasta que estén bien calientes.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Mueve los frijoles para evitar que se peguen al fondo.",
+      "imagen": "/recetas/molletes-paso2.jpeg"
+    },
+    {
+      "texto": "Unta los frijoles sobre las mitades de bolillo, agrega el queso y colócalos en una charola para horno. Hornea hasta que el queso se derrita y el pan esté caliente.",
+      "estufa": null,
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Usa guantes para horno al retirar la charola.",
+      "imagen": "/recetas/molletes-paso3.jpeg"
+    },
+    {
+      "texto": "Deja reposar los molletes hasta que estén tibios. Agrega el jitomate picado y corta cada pieza en trozos pequeños antes de servir.",
+      "estufa": null,
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba que el queso no esté demasiado caliente.",
+      "imagen": "/recetas/molletes-paso4.jpeg"
+    }
+  ]
+}

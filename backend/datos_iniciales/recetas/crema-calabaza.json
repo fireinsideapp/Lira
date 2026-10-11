@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. La crema debe tener una consistencia uniforme y una temperatura adecuada para servir.",
+  "slug": "crema-calabacita",
+  "titulo": "Crema de calabacita",
+  "descripcion": "Crema suave de calabacita con papa y leche, ideal como entrada o cena ligera.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Calabacitas",
+      "cantidad": "400 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Papa",
+      "cantidad": "100 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Leche",
+      "cantidad": "250 ml",
+      "grupo": "Líquidos"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "400 ml",
+      "grupo": "Líquidos"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "30 g",
+      "grupo": "Sabor"
+    },
+    {
+      "nombre": "Aceite de oliva",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava las calabacitas y pela la papa. Corta ambas en trozos pequeños y pica la cebolla.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": null,
+      "imagen": "/recetas/crema-calabacita-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y cocina la cebolla hasta que esté suave. Agrega las calabacitas, la papa y el agua. Cocina hasta que las verduras se deshagan fácilmente con un tenedor.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": 15,
+      "temporizador_nombre": "Revisar la cocción de las verduras",
+      "nota_seguridad": "Vigila el agua y mantén la olla estable sobre la estufa.",
+      "imagen": "/recetas/crema-calabacita-paso2.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y deja que las verduras pierdan parte de su calor. Licúalas en tandas pequeñas hasta obtener una crema homogénea.",
+      "estufa": "apagar",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "No llenes la licuadora con líquido muy caliente; sigue las instrucciones del aparato para liberar el vapor.",
+      "imagen": "/recetas/crema-calabacita-paso3.jpeg"
+    },
+    {
+      "texto": "Regresa la crema a la olla, agrega la leche y calienta a fuego bajo mientras mueves hasta que esté caliente. Apaga la estufa y sirve.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": 5,
+      "temporizador_nombre": "Revisar la temperatura de la crema",
+      "nota_seguridad": "Evita que la leche hierva y se derrame.",
+      "imagen": "/recetas/crema-calabacita-paso4.jpeg"
+    }
+  ]
+}

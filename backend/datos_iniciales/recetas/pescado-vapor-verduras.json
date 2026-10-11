@@ -1,0 +1,68 @@
+{
+  "_comentario": "Receta de elaboración propia. El pescado debe alcanzar una cocción completa antes de servirse.",
+  "slug": "pescado-vapor-verduras",
+  "titulo": "Pescado al vapor con verduras",
+  "descripcion": "Filete de pescado blanco cocido al vapor con zanahoria y calabacita, sin empanizado.",
+  "porciones": 2,
+  "ingredientes": [
+    {
+      "nombre": "Filete de pescado blanco sin espinas",
+      "cantidad": "300 g",
+      "grupo": "Proteína"
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "100 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Calabacita",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Limón",
+      "cantidad": "30 ml de jugo",
+      "grupo": "Sabor"
+    },
+    {
+      "nombre": "Aceite de oliva",
+      "cantidad": "5 ml",
+      "grupo": "Sabor"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "500 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava las verduras y córtalas en rodajas delgadas. Revisa cuidadosamente que el pescado no tenga espinas.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Mantén separados los utensilios que hayan tocado pescado crudo de los que usarás para servir.",
+      "imagen": "/recetas/pescado-vapor-paso1.jpeg"
+    },
+    {
+      "texto": "Pon el agua en una olla y coloca encima una vaporera. Distribuye las verduras y el pescado sin amontonarlos. Tapa y cocina hasta que las verduras estén tiernas y el pescado alcance 63 °C en su parte más gruesa.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Abre la tapa alejándola del rostro para evitar quemaduras por vapor.",
+      "imagen": "/recetas/pescado-vapor-paso2.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve el pescado con las verduras. Agrega el jugo de limón y el aceite de oliva. Desmenuza el pescado y vuelve a revisar que no haya espinas.",
+      "estufa": "apagar",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Sirve a una temperatura cómoda y revisa cuidadosamente las espinas.",
+      "imagen": "/recetas/pescado-vapor-paso3.jpeg"
+    }
+  ]
+}

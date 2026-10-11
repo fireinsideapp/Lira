@@ -1,0 +1,87 @@
+{
+  "_comentario": "Receta de elaboración propia. La cocción se comprueba mediante la textura de las verduras.",
+  "slug": "sopa-verduras",
+  "titulo": "Sopa de verduras",
+  "descripcion": "Caldo casero con zanahoria, papa, chayote y calabacita cocidos hasta quedar suaves.",
+  "porciones": 4,
+  "ingredientes": [
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Papa",
+      "cantidad": "200 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Chayote",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Calabacita",
+      "cantidad": "150 g",
+      "grupo": "Verduras"
+    },
+    {
+      "nombre": "Jitomate",
+      "cantidad": "150 g",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "40 g",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "1.2 litros",
+      "grupo": "Caldo"
+    },
+    {
+      "nombre": "Aceite vegetal",
+      "cantidad": "5 ml",
+      "grupo": "Caldo"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Lava y pela la zanahoria, la papa y el chayote. Lava la calabacita. Corta todas las verduras en cubos pequeños y de tamaño similar.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Retira las semillas duras del chayote si las hubiera y corta con cuidado.",
+      "imagen": "/recetas/sopa-verduras-paso1.jpeg"
+    },
+    {
+      "texto": "Licúa el jitomate con la cebolla y un poco del agua indicada. Calienta el aceite en una olla y cocina la mezcla hasta que cambie de color.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Si la mezcla salpica, baja el fuego.",
+      "imagen": "/recetas/sopa-verduras-paso2.jpeg"
+    },
+    {
+      "texto": "Agrega el resto del agua, la zanahoria, la papa y el chayote. Cocina a fuego medio hasta que comiencen a ablandarse; incorpora la calabacita y continúa hasta que todas las verduras estén tiernas.",
+      "estufa": "encendida",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Mantén la olla vigilada y evita llenarla demasiado.",
+      "imagen": "/recetas/sopa-verduras-paso3.jpeg"
+    },
+    {
+      "texto": "Apaga la estufa y sirve el caldo con las verduras en trozos pequeños, después de comprobar que no esté demasiado caliente.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Transporta la olla con ambas manos y con ayuda si pesa demasiado.",
+      "imagen": "/recetas/sopa-verduras-paso4.jpeg"
+    }
+  ]
+}

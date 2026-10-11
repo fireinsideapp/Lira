@@ -74,7 +74,7 @@
       "temporizador_segundos": null,
       "temporizador_nombre": null,
       "nota_seguridad": null,
-      "imagen": "/recetas/verdes-paso1.jpg"
+      "imagen": "/recetas/verdes-paso1.jpeg"
     },
     {
       "texto": "Pon en una olla con agua los tomatillos verdes y los chiles serranos o jalapeños. Hiérvelos hasta que estén suaves.",
@@ -83,7 +83,7 @@
       "orden": 2,
       "temporizador_segundos": null,
       "temporizador_nombre": null,
-      "imagen": "/recetas/verdes-paso2.jpg"
+      "imagen": "/recetas/verdes-paso2.jpeg"
     },
     {
       "texto": "Apaga la estufa. Escurre los tomatillos y los chiles.",
@@ -92,7 +92,7 @@
       "temporizador_segundos": null,
       "temporizador_nombre": null,
       "nota_seguridad": null,
-      "imagen": "/recetas/verdes-paso3.jpg"
+      "imagen": "/recetas/verdes-paso3.jpeg"
     },
     {
       "texto": "Pon en la licuadora lo que escurriste, con la cebolla, el ajo y sal. Licúa hasta que quede una salsa.",
@@ -101,7 +101,7 @@
       "orden": 4,
       "temporizador_segundos": null,
       "temporizador_nombre": null,
-      "imagen": "/recetas/verdes-paso4.jpg"
+      "imagen": "/recetas/verdes-paso4.jpeg"
     },
     {
       "texto": "Calienta un poco de aceite en una sartén y fríe la salsa de 5 a 10 minutos. Te aviso a los 5 minutos para que la revises.",
@@ -110,7 +110,7 @@
       "temporizador_nombre": "Salsa en la sartén",
       "nota_seguridad": "Ten cuidado con las salpicaduras de aceite caliente.",
       "orden": 5,
-      "imagen": "/recetas/verdes-paso5.jpg"
+      "imagen": "/recetas/verdes-paso5.jpeg"
     },
     {
       "texto": "Fríe las tortillas en triángulos en aceite caliente hasta que estén doradas y crujientes. Si prefieres, también puedes hornearlas a 200 grados de 15 a 20 minutos.",
@@ -119,7 +119,7 @@
       "orden": 6,
       "temporizador_segundos": null,
       "temporizador_nombre": null,
-      "imagen": "/recetas/verdes-paso6.jpg"
+      "imagen": "/recetas/verdes-paso6.jpeg"
     },
     {
       "texto": "Agrega los totopos a la salsa caliente en la sartén. Mezcla con movimientos envolventes para cubrirlos sin romperlos. Cocina de 2 a 3 minutos, hasta que la salsa espese ligeramente. Te aviso a los 2 minutos para que los revises.",
@@ -128,7 +128,7 @@
       "temporizador_nombre": "Chilaquiles en la sartén",
       "orden": 7,
       "nota_seguridad": null,
-      "imagen": "/recetas/verdes-paso7.jpg"
+      "imagen": "/recetas/verdes-paso7.jpeg"
     },
     {
       "texto": "Apaga la estufa.",
@@ -137,7 +137,7 @@
       "temporizador_segundos": null,
       "temporizador_nombre": null,
       "nota_seguridad": null,
-      "imagen": "/recetas/verdes-paso8.jpg"
+      "imagen": "/recetas/verdes-paso8.jpeg"
     },
     {
       "texto": "Sirve los chilaquiles inmediatamente. Decóralos con queso, crema, cebolla picada y cilantro. Si quieres, agrega huevo frito o pollo deshebrado. ¡Buen provecho!",
@@ -146,7 +146,7 @@
       "temporizador_segundos": null,
       "temporizador_nombre": null,
       "nota_seguridad": null,
-      "imagen": "/recetas/verdes-paso9.jpg"
+      "imagen": "/recetas/verdes-paso9.jpeg"
     }
   ]
 }

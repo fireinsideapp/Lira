@@ -1,0 +1,77 @@
+{
+  "_comentario": "Receta de elaboración propia. No se asignan temporizadores de cocción; comprueba que la zanahoria esté completamente blanda.",
+  "slug": "crema-zanahoria",
+  "titulo": "Crema de zanahoria",
+  "descripcion": "Crema casera de zanahoria y leche, de consistencia homogénea y sabor ligeramente dulce.",
+  "porciones": 3,
+  "ingredientes": [
+    {
+      "nombre": "Zanahoria",
+      "cantidad": "400 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Papa",
+      "cantidad": "100 g",
+      "grupo": "Base"
+    },
+    {
+      "nombre": "Leche",
+      "cantidad": "250 ml",
+      "grupo": "Líquidos"
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": "500 ml",
+      "grupo": "Líquidos"
+    },
+    {
+      "nombre": "Cebolla",
+      "cantidad": "30 g",
+      "grupo": "Sabor"
+    },
+    {
+      "nombre": "Aceite de oliva",
+      "cantidad": "5 ml",
+      "grupo": "Cocción"
+    }
+  ],
+  "pasos": [
+    {
+      "texto": "Pela y lava las zanahorias y la papa. Córtalas en trozos pequeños y pica la cebolla.",
+      "estufa": null,
+      "orden": 1,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Corta sobre una tabla estable.",
+      "imagen": "/recetas/crema-zanahoria-paso1.jpeg"
+    },
+    {
+      "texto": "Calienta el aceite en una olla y sofríe la cebolla hasta que esté suave. Añade la zanahoria, la papa y el agua.",
+      "estufa": "encendida",
+      "orden": 2,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Añade el agua con cuidado para evitar salpicaduras.",
+      "imagen": "/recetas/crema-zanahoria-paso2.jpeg"
+    },
+    {
+      "texto": "Cocina hasta que la zanahoria y la papa se deshagan fácilmente con un tenedor. Apaga la estufa y deja que la mezcla baje de temperatura antes de licuarla en tandas pequeñas.",
+      "estufa": "apagar",
+      "orden": 3,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Nunca llenes demasiado la licuadora con líquidos calientes; permite que salga el vapor siguiendo las instrucciones del aparato.",
+      "imagen": "/recetas/crema-zanahoria-paso3.jpeg"
+    },
+    {
+      "texto": "Regresa la crema a la olla, incorpora la leche y calienta a fuego bajo, moviendo hasta que esté caliente sin hervir. Apaga la estufa y sirve.",
+      "estufa": "apagar",
+      "orden": 4,
+      "temporizador_minutos": null,
+      "temporizador_nombre": null,
+      "nota_seguridad": "Comprueba la temperatura antes de servir.",
+      "imagen": "/recetas/crema-zanahoria-paso4.jpeg"
+    }
+  ]
+}
